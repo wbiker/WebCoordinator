@@ -42,6 +42,14 @@ sub index :Path :Args(0) {
     $c->stash(debug => $str);
 }
 
+sub modify :Path(/modify) :Args(1) {
+    my ($self, $c, $tr_id) = @_;
+
+    $c->log->info("modify: ");
+    $c->model('TestRunData')->modify_testrun($c, $tr_id);
+    $c->stash(template => 'index.tt2');
+}
+
 =head2 default
 
 Standard 404 error page

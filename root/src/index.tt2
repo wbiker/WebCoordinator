@@ -1,5 +1,5 @@
 [% META title="Testruns" %]
 
 [% FOREACH key = testruns.keys %]
-    <p>[% key %] is [% testruns.$key.name %] </p>
+    <p>[% testruns.$key.name %] <a href="[% c.uri_for('/modify', testruns.$key.id ) %]">modify</a> </p>
 [% END %]

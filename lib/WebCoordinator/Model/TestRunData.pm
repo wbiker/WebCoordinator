@@ -3,6 +3,7 @@ use Moose;
 use namespace::autoclean;
 use Data::Dump::Streamer;
 use JSON;
+use Git::Wrapper;
 
 extends 'Catalyst::Model';
 
@@ -61,6 +62,18 @@ sub get_all_testruns {
 }
 
 
+sub modify_testrun {
+    my $self = shift;
+    my $c = shift;
+    my $tr_id = shift;
+
+    my $tr_ref = $self->{testruns};
+
+    my $tr = $tr_ref->{$tr_id};
+
+    my $git = Git::Wrapper->new('./root/files');
+    $c->log->debug($git->branch("$tr_id"));
+}
 =head1 AUTHOR
 
 wolf
