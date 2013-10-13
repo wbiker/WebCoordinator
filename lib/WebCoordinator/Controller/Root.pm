@@ -1,6 +1,7 @@
 package WebCoordinator::Controller::Root;
 use Moose;
 use namespace::autoclean;
+use Data::Dump::Streamer;
 
 BEGIN { extends 'Catalyst::Controller' }
 
@@ -32,7 +33,13 @@ sub index :Path :Args(0) {
     # Hello World
     my $tr_data = $c->model('TestRunData');
 
-    $c->response->body("Erro: ".$tr_data->error);
+    my $tt = $tr_data->get_all_testruns($c);
+#    my $tref = eval { $tt };
+ #   if($@) { $c->log->error($@); }
+    $c->stash(testruns => $tt);
+
+    my $str = Dump($tt)->Out();
+    $c->stash(debug => $str);
 }
 
 =head2 default

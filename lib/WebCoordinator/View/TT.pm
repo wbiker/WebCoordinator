@@ -5,7 +5,11 @@ use namespace::autoclean;
 extends 'Catalyst::View::TT';
 
 __PACKAGE__->config(
+    INCLUDE_PATH => [
+    WebCoordinator->path_to('root', 'src'),
+    ],
     TEMPLATE_EXTENSION => '.tt2',
+    WRAPPER => 'main',
     render_die => 1,
 );
 
