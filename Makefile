@@ -1,7 +1,7 @@
 # This Makefile is for the WebCoordinator extension to perl.
 #
 # It was generated automatically by MakeMaker version
-# 6.78 (Revision: 67800) from the contents of
+# 6.64 (Revision: 66400) from the contents of
 # Makefile.PL. Don't edit this file, edit Makefile.PL instead.
 #
 #       ANY CHANGES MADE HERE WILL BE LOST!
@@ -24,7 +24,7 @@
 #     TEST_REQUIRES => {  }
 #     VERSION => q[0.01]
 #     VERSION_FROM => q[lib/WebCoordinator.pm]
-#     dist => { PREOP=>q[$(PERL) -I. "-MModule::Install::Admin" -e "dist_preop(q($(DISTVNAME)))"] }
+#     dist => {  }
 #     realclean => { FILES=>q[MYMETA.yml] }
 #     test => { TESTS=>q[t/01app.t t/02pod.t t/03podcoverage.t t/model_TestRunData.t t/view_TT.t] }
 
@@ -44,7 +44,7 @@ DLSRC = dl_dlopen.xs
 EXE_EXT = 
 FULL_AR = /usr/bin/ar
 LD = gcc
-LDDLFLAGS = -shared -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -Wl,-z,relro 
+LDDLFLAGS = -shared -O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -grecord-gcc-switches -m64 -mtune=generic -Wl,-z,relro 
 LDFLAGS =  -fstack-protector
 LIBC = 
 LIB_EXT = .a
@@ -144,9 +144,9 @@ PERM_DIR = 755
 PERM_RW = 644
 PERM_RWX = 755
 
-MAKEMAKER   = /usr/local/share/perl5/ExtUtils/MakeMaker.pm
-MM_VERSION  = 6.78
-MM_REVISION = 67800
+MAKEMAKER   = /usr/share/perl5/vendor_perl/ExtUtils/MakeMaker.pm
+MM_VERSION  = 6.64
+MM_REVISION = 66400
 
 # FULLEXT = Pathname for extension directory (eg Foo/Bar/Oracle).
 # BASEEXT = Basename part of FULLEXT. May be just equal FULLEXT. (eg Oracle)
@@ -203,18 +203,18 @@ TO_INST_PM = lib/WebCoordinator.pm \
 	lib/WebCoordinator/Model/TestRunData.pm \
 	lib/WebCoordinator/View/TT.pm
 
-PM_TO_BLIB = lib/WebCoordinator.pm \
-	blib/lib/WebCoordinator.pm \
-	lib/WebCoordinator/Controller/Root.pm \
+PM_TO_BLIB = lib/WebCoordinator/Controller/Root.pm \
 	blib/lib/WebCoordinator/Controller/Root.pm \
 	lib/WebCoordinator/Model/TestRunData.pm \
 	blib/lib/WebCoordinator/Model/TestRunData.pm \
 	lib/WebCoordinator/View/TT.pm \
-	blib/lib/WebCoordinator/View/TT.pm
+	blib/lib/WebCoordinator/View/TT.pm \
+	lib/WebCoordinator.pm \
+	blib/lib/WebCoordinator.pm
 
 
 # --- MakeMaker platform_constants section:
-MM_Unix_VERSION = 6.78
+MM_Unix_VERSION = 6.64
 PERL_MALLOC_DEF = -DPERL_EXTMALLOC_DEF -Dmalloc=Perl_malloc -Dfree=Perl_mfree -Drealloc=Perl_realloc -Dcalloc=Perl_calloc
 
 
@@ -271,7 +271,7 @@ ZIPFLAGS = -r
 COMPRESS = gzip --best
 SUFFIX = .gz
 SHAR = shar
-PREOP = $(PERL) -I. "-MModule::Install::Admin" -e "dist_preop(q($(DISTVNAME)))"
+PREOP = $(NOECHO) $(NOOP)
 POSTOP = $(NOECHO) $(NOOP)
 TO_UNIX = $(NOECHO) $(NOOP)
 CI = ci -u
@@ -432,26 +432,26 @@ POD2MAN = $(POD2MAN_EXE)
 
 
 manifypods : pure_all  \
-	lib/WebCoordinator.pm \
+	script/webcoordinator_test.pl \
+	script/webcoordinator_create.pl \
+	script/webcoordinator_server.pl \
+	script/webcoordinator_cgi.pl \
+	script/webcoordinator_fastcgi.pl \
 	lib/WebCoordinator/Controller/Root.pm \
 	lib/WebCoordinator/Model/TestRunData.pm \
 	lib/WebCoordinator/View/TT.pm \
-	script/webcoordinator_cgi.pl \
-	script/webcoordinator_create.pl \
-	script/webcoordinator_fastcgi.pl \
-	script/webcoordinator_server.pl \
-	script/webcoordinator_test.pl
+	lib/WebCoordinator.pm
 	$(NOECHO) $(POD2MAN) --section=1 --perm_rw=$(PERM_RW) \
-	  script/webcoordinator_cgi.pl $(INST_MAN1DIR)/webcoordinator_cgi.pl.$(MAN1EXT) \
+	  script/webcoordinator_test.pl $(INST_MAN1DIR)/webcoordinator_test.pl.$(MAN1EXT) \
 	  script/webcoordinator_create.pl $(INST_MAN1DIR)/webcoordinator_create.pl.$(MAN1EXT) \
-	  script/webcoordinator_fastcgi.pl $(INST_MAN1DIR)/webcoordinator_fastcgi.pl.$(MAN1EXT) \
 	  script/webcoordinator_server.pl $(INST_MAN1DIR)/webcoordinator_server.pl.$(MAN1EXT) \
-	  script/webcoordinator_test.pl $(INST_MAN1DIR)/webcoordinator_test.pl.$(MAN1EXT) 
+	  script/webcoordinator_cgi.pl $(INST_MAN1DIR)/webcoordinator_cgi.pl.$(MAN1EXT) \
+	  script/webcoordinator_fastcgi.pl $(INST_MAN1DIR)/webcoordinator_fastcgi.pl.$(MAN1EXT) 
 	$(NOECHO) $(POD2MAN) --section=3 --perm_rw=$(PERM_RW) \
-	  lib/WebCoordinator.pm $(INST_MAN3DIR)/WebCoordinator.$(MAN3EXT) \
 	  lib/WebCoordinator/Controller/Root.pm $(INST_MAN3DIR)/WebCoordinator::Controller::Root.$(MAN3EXT) \
 	  lib/WebCoordinator/Model/TestRunData.pm $(INST_MAN3DIR)/WebCoordinator::Model::TestRunData.$(MAN3EXT) \
-	  lib/WebCoordinator/View/TT.pm $(INST_MAN3DIR)/WebCoordinator::View::TT.$(MAN3EXT) 
+	  lib/WebCoordinator/View/TT.pm $(INST_MAN3DIR)/WebCoordinator::View::TT.$(MAN3EXT) \
+	  lib/WebCoordinator.pm $(INST_MAN3DIR)/WebCoordinator.$(MAN3EXT) 
 
 
 
@@ -520,25 +520,24 @@ clean_subdirs :
 
 clean :: clean_subdirs
 	- $(RM_F) \
-	  $(BASEEXT).bso $(BASEEXT).def \
-	  $(BASEEXT).exp $(BASEEXT).x \
-	  $(BOOTSTRAP) $(INST_ARCHAUTODIR)/extralibs.all \
-	  $(INST_ARCHAUTODIR)/extralibs.ld $(MAKE_APERL_FILE) \
-	  *$(LIB_EXT) *$(OBJ_EXT) \
-	  *perl.core MYMETA.json \
-	  MYMETA.yml blibdirs.ts \
-	  core core.*perl.*.? \
-	  core.[0-9] core.[0-9][0-9] \
-	  core.[0-9][0-9][0-9] core.[0-9][0-9][0-9][0-9] \
-	  core.[0-9][0-9][0-9][0-9][0-9] lib$(BASEEXT).def \
-	  mon.out perl \
-	  perl$(EXE_EXT) perl.exe \
-	  perlmain.c pm_to_blib \
-	  pm_to_blib.ts so_locations \
-	  tmon.out 
+	  *$(LIB_EXT) core \
+	  core.[0-9] $(INST_ARCHAUTODIR)/extralibs.all \
+	  core.[0-9][0-9] $(BASEEXT).bso \
+	  pm_to_blib.ts MYMETA.json \
+	  core.[0-9][0-9][0-9][0-9] MYMETA.yml \
+	  $(BASEEXT).x $(BOOTSTRAP) \
+	  perl$(EXE_EXT) tmon.out \
+	  *$(OBJ_EXT) pm_to_blib \
+	  $(INST_ARCHAUTODIR)/extralibs.ld blibdirs.ts \
+	  core.[0-9][0-9][0-9][0-9][0-9] *perl.core \
+	  core.*perl.*.? $(MAKE_APERL_FILE) \
+	  $(BASEEXT).def perl \
+	  core.[0-9][0-9][0-9] mon.out \
+	  lib$(BASEEXT).def perlmain.c \
+	  perl.exe so_locations \
+	  $(BASEEXT).exp 
 	- $(RM_RF) \
 	  blib 
-	  $(NOECHO) $(RM_F) $(MAKEFILE_OLD)
 	- $(MV) $(FIRST_MAKEFILE) $(MAKEFILE_OLD) $(DEV_NULL)
 
 
@@ -580,7 +579,7 @@ manifest :
 	$(PERLRUN) "-MExtUtils::Manifest=mkmanifest" -e mkmanifest
 
 veryclean : realclean
-	$(RM_F) *~ */*~ *.orig */*.orig *.bak */*.bak *.old */*.old
+	$(RM_F) *~ */*~ *.orig */*.orig *.bak */*.bak *.old */*.old 
 
 
 
@@ -595,7 +594,6 @@ tardist : $(DISTVNAME).tar$(SUFFIX)
 
 uutardist : $(DISTVNAME).tar$(SUFFIX)
 	uuencode $(DISTVNAME).tar$(SUFFIX) $(DISTVNAME).tar$(SUFFIX) > $(DISTVNAME).tar$(SUFFIX)_uu
-	$(NOECHO) $(ECHO) 'Created $(DISTVNAME).tar$(SUFFIX)_uu'
 
 $(DISTVNAME).tar$(SUFFIX) : distdir
 	$(PREOP)
@@ -603,7 +601,6 @@ $(DISTVNAME).tar$(SUFFIX) : distdir
 	$(TAR) $(TARFLAGS) $(DISTVNAME).tar $(DISTVNAME)
 	$(RM_RF) $(DISTVNAME)
 	$(COMPRESS) $(DISTVNAME).tar
-	$(NOECHO) $(ECHO) 'Created $(DISTVNAME).tar$(SUFFIX)'
 	$(POSTOP)
 
 zipdist : $(DISTVNAME).zip
@@ -613,14 +610,12 @@ $(DISTVNAME).zip : distdir
 	$(PREOP)
 	$(ZIP) $(ZIPFLAGS) $(DISTVNAME).zip $(DISTVNAME)
 	$(RM_RF) $(DISTVNAME)
-	$(NOECHO) $(ECHO) 'Created $(DISTVNAME).zip'
 	$(POSTOP)
 
 shdist : distdir
 	$(PREOP)
 	$(SHAR) $(DISTVNAME) > $(DISTVNAME).shar
 	$(RM_RF) $(DISTVNAME)
-	$(NOECHO) $(ECHO) 'Created $(DISTVNAME).shar'
 	$(POSTOP)
 
 
@@ -665,7 +660,7 @@ distmeta : create_distdir metafile
 
 # --- MakeMaker distsignature section:
 distsignature : create_distdir
-	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'eval { maniadd({q{SIGNATURE} => q{Public-key signature (added by MakeMaker)}}) }' \
+	$(NOECHO) cd $(DISTVNAME) && $(ABSPERLRUN) -MExtUtils::Manifest=maniadd -e 'eval { maniadd({q{SIGNATURE} => q{Public-key signature (added by MakeMaker)}}) } ' \
 	  -e '    or print "Could not add SIGNATURE to MANIFEST: $$$${'\''@'\''}\n"' --
 	$(NOECHO) cd $(DISTVNAME) && $(TOUCH) SIGNATURE
 	cd $(DISTVNAME) && cpansign -s
@@ -735,7 +730,6 @@ pure_vendor_install :: all
 		$(INST_SCRIPT) $(DESTINSTALLVENDORSCRIPT) \
 		$(INST_MAN1DIR) $(DESTINSTALLVENDORMAN1DIR) \
 		$(INST_MAN3DIR) $(DESTINSTALLVENDORMAN3DIR)
-
 
 doc_perl_install :: all
 	$(NOECHO) $(ECHO) Appending installation info to $(DESTINSTALLARCHLIB)/perllocal.pod
@@ -843,7 +837,7 @@ subdirs-test ::
 
 
 test_dynamic :: pure_all
-	PERL_DL_NONLAZY=1 $(FULLPERLRUN) "-MExtUtils::Command::MM" "-MTest::Harness" "-e" "undef *Test::Harness::Switches; test_harness($(TEST_VERBOSE), 'inc', '$(INST_LIB)', '$(INST_ARCHLIB)')" $(TEST_FILES)
+	PERL_DL_NONLAZY=1 $(FULLPERLRUN) "-MExtUtils::Command::MM" "-e" "test_harness($(TEST_VERBOSE), 'inc', '$(INST_LIB)', '$(INST_ARCHLIB)')" $(TEST_FILES)
 
 testdb_dynamic :: pure_all
 	PERL_DL_NONLAZY=1 $(FULLPERLRUN) $(TESTDB_SW) "-Iinc" "-I$(INST_LIB)" "-I$(INST_ARCHLIB)" $(TEST_FILE)
@@ -879,10 +873,10 @@ ppd :
 
 pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', q[$(PM_FILTER)], '\''$(PERM_DIR)'\'')' -- \
-	  lib/WebCoordinator.pm blib/lib/WebCoordinator.pm \
 	  lib/WebCoordinator/Controller/Root.pm blib/lib/WebCoordinator/Controller/Root.pm \
 	  lib/WebCoordinator/Model/TestRunData.pm blib/lib/WebCoordinator/Model/TestRunData.pm \
-	  lib/WebCoordinator/View/TT.pm blib/lib/WebCoordinator/View/TT.pm 
+	  lib/WebCoordinator/View/TT.pm blib/lib/WebCoordinator/View/TT.pm \
+	  lib/WebCoordinator.pm blib/lib/WebCoordinator.pm 
 	$(NOECHO) $(TOUCH) pm_to_blib
 
 
@@ -894,25 +888,6 @@ pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 
 # End.
 # Postamble by Module::Install 1.04
-# --- Module::Install::Admin::Makefile section:
-
-realclean purge ::
-	$(RM_F) $(DISTVNAME).tar$(SUFFIX)
-	$(RM_F) MANIFEST.bak _build
-	$(PERL) "-Ilib" "-MModule::Install::Admin" -e "remove_meta()"
-	$(RM_RF) inc
-
-reset :: purge
-
-upload :: test dist
-	cpan-upload -verbose $(DISTVNAME).tar$(SUFFIX)
-
-grok ::
-	perldoc Module::Install
-
-distsign ::
-	cpansign -s
-
 catalyst_par :: all
 	$(NOECHO) $(PERL) -Ilib -Minc::Module::Install -MModule::Install::Catalyst -e"Catalyst::Module::Install::_catalyst_par( '', 'WebCoordinator', { CLASSES => [], PAROPTS =>  {}, ENGINE => 'CGI', SCRIPT => '', USAGE => q## } )"
 # --- Module::Install::AutoInstall section:
@@ -924,20 +899,20 @@ checkdeps ::
 	$(PERL) Makefile.PL --checkdeps
 
 installdeps ::
-	$(NOECHO) $(NOOP)
+	$(PERL) Makefile.PL --config= --installdeps=Git::Wrapper,0
 
 installdeps_notest ::
-	$(NOECHO) $(NOOP)
+	$(PERL) Makefile.PL --config=notest,1 --installdeps=Git::Wrapper,0
 
 upgradedeps ::
-	$(PERL) Makefile.PL --config= --upgradedeps=Test::More,0.88,Catalyst::Runtime,5.90017,Catalyst::Plugin::ConfigLoader,0,Catalyst::Plugin::Static::Simple,0,Catalyst::Action::RenderView,0,Moose,0,namespace::autoclean,0,Config::General,0,Git::Wrapper,0
+	$(PERL) Makefile.PL --config= --upgradedeps=Git::Wrapper,0,Test::More,0.88,Catalyst::Runtime,5.90017,Catalyst::Plugin::ConfigLoader,0,Catalyst::Plugin::Static::Simple,0,Catalyst::Action::RenderView,0,Moose,0,namespace::autoclean,0,Config::General,0
 
 upgradedeps_notest ::
-	$(PERL) Makefile.PL --config=notest,1 --upgradedeps=Test::More,0.88,Catalyst::Runtime,5.90017,Catalyst::Plugin::ConfigLoader,0,Catalyst::Plugin::Static::Simple,0,Catalyst::Action::RenderView,0,Moose,0,namespace::autoclean,0,Config::General,0,Git::Wrapper,0
+	$(PERL) Makefile.PL --config=notest,1 --upgradedeps=Git::Wrapper,0,Test::More,0.88,Catalyst::Runtime,5.90017,Catalyst::Plugin::ConfigLoader,0,Catalyst::Plugin::Static::Simple,0,Catalyst::Action::RenderView,0,Moose,0,namespace::autoclean,0,Config::General,0
 
 listdeps ::
-	@$(PERL) -le "print for @ARGV" 
+	@$(PERL) -le "print for @ARGV" Git::Wrapper
 
 listalldeps ::
-	@$(PERL) -le "print for @ARGV" Test::More Catalyst::Runtime Catalyst::Plugin::ConfigLoader Catalyst::Plugin::Static::Simple Catalyst::Action::RenderView Moose namespace::autoclean Config::General Git::Wrapper
+	@$(PERL) -le "print for @ARGV" Git::Wrapper Test::More Catalyst::Runtime Catalyst::Plugin::ConfigLoader Catalyst::Plugin::Static::Simple Catalyst::Action::RenderView Moose namespace::autoclean Config::General
 
