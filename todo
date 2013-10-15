@@ -1,0 +1,9 @@
+# ToDo list for the WebCoordinator
+
+* Implement user realms. User must login to change Test Runs, Test Suites or Test Cases.
+* Create files for each "Table". Testruns, Testsuites, Testcases, TRparams, TSparams, TCparams
+	EnvironmentVaraibles, 
+* TestRunData must be able to reload the database files. E.G.: After a merge of the file repository.
+* TestRunData must be able to create a new branch if a user modified some data.
+* TestRunData muse be commit and push new data
+
