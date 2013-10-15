@@ -18,8 +18,8 @@ This Catalyst Model capsulate the test run data. It loads the data from a file a
 =cut
 
 has 'testrun_data' => (is => 'ro', isa => 'HashRef');
-has 'testrun_file' => (is => 'ro', isa => 'Str', default => './root/files/testruns.dat');
-has 'testsuite_file' => (is => 'ro', isa => 'Str', default => './root/files/testruns.dat');
+has 'testrun_file' => (is => 'ro', isa => 'Str', default => './root/files/master/testrun.db');
+has 'testsuite_file' => (is => 'ro', isa => 'Str', default => './root/files/master/testsuites_new.db');
 has 'error' => (is => 'rw', isa => 'Str');
 has 'testruns' => (is => 'ro', isa => 'HashRef');
 
@@ -29,6 +29,7 @@ sub BUILD {
     # This method is called by Moose after object creation.
     # I use this to load the data from the file(s)
     if(-e $self->{testrun_file}) {
+        $self->{error} .= "testrun file found";
         my $file = $self->{testrun_file};
         my $tr = do $file;
         $self->{error} .= "couldn't parse testrun_file: $@" if $@;
@@ -38,6 +39,20 @@ sub BUILD {
     }
     else {
         $self->{error} = 'Could not found testrun_file';
+    }
+
+
+    if(-e $self->{testsuite_file}) {
+        $self->{error} .= "testsuite file found";
+        my $file = $self->{testsuite_file};
+        my $tr = do $file;
+        $self->{error} .= "couldn't parse testsuite_file: $@" if $@;
+        $self->{error} .= "Could not do testsuite_file: $!" unless defined $tr;
+        $self->{error} .= "Could not run testsuite_file" unless $tr;
+        $self->{testsuites} = $tr;
+    }
+    else {
+        $self->{error} = 'Could not found testsuite_file';
     }
 }
 
@@ -61,6 +76,28 @@ sub get_all_testruns {
     return $trsa;
 }
 
+sub get_test_run {
+    my $self = shift;
+    my $c = shift;
+    my $testrun_id = shift;
+
+    $c->log->debug("search test run $testrun_id");
+    return $self->{testruns}->{$testrun_id};
+}
+
+sub get_test_suites {
+    my $self = shift;
+    my $c = shift;
+    my $testsuite_ids = shift;
+
+    my $ts = [];
+
+    for my $ts_id (@{$testsuite_ids}) {
+        push($ts, $self->{testsuites}->{$ts_id});
+    }
+
+    return $ts;
+}
 
 sub modify_testrun {
     my $self = shift;
