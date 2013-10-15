@@ -35,6 +35,17 @@ sub testrun :Path('/testrun') :Args(1) {
     $c->stash(debug => Dumper $test_suites);
 }
 
+sub list :Path('/testrun/list') :Args(0) {
+    my ($self, $c) = @_;
+    $c->log->debug("testrun path called");
+    # Hello World
+    my $tr_data = $c->model('TestRunData');
+
+    my $tt = $tr_data->get_all_testruns($c);
+#    my $tref = eval { $tt };
+ #   if($@) { $c->log->error($@); }
+    $c->stash(testruns => $tt);
+}
 
 =head1 AUTHOR
 

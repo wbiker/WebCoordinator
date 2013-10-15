@@ -5,7 +5,7 @@ Name: [% testrun.name %]<br>
 </p>
 [% FOREACH ts IN testsuites %]
 <p>
-Name: [% ts.name %]<br>
+Name: <a href="[% c.uri_for('/testsuite', ts.id) %]">[% ts.name %]</a><br>
 ID: [% ts.id %]<br>
 Precondition: [% ts.precondition %]<br>
 Description: [% ts.description %]<br>

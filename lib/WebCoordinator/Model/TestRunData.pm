@@ -99,6 +99,18 @@ sub get_test_suites {
     return $ts;
 }
 
+sub get_all_testsuites {
+    my ($self, $c) = @_;
+
+    return $self->{testsuites};
+}
+
+sub get_all_testcases {
+    my ($self, $c) = @_;
+
+    return $self->{testcases};
+}
+
 sub modify_testrun {
     my $self = shift;
     my $c = shift;
@@ -111,6 +123,13 @@ sub modify_testrun {
     my $git = Git::Wrapper->new('./root/files');
     $c->log->debug($git->branch("$tr_id"));
 }
+
+sub get_test_suite {
+    my ($self, $c, $testsuite_id) = @_;
+
+    return $self->{testsuites}->{$testsuite_id};
+}
+
 =head1 AUTHOR
 
 wolf

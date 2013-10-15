@@ -1,0 +1,9 @@
+[% META title="Testcases" %]
+
+[% FOREACH key IN testcases.keys %]
+<p>
+Name: <a href="[% c.uri_for('/testcase', testcases.$key.id) %]">[% testcases.$key.name %]</a><br>
+ID: [% testcases.$key.id %]<br>
+Description: [% testcases.$key.description %]<br>
+</p>
+[% END %]

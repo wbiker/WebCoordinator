@@ -1,0 +1,16 @@
+[% META title="Testsuite" %]
+
+<p>
+Name: [% testsuite.name %]<br>
+ID: [% testsuite.id %]<br>
+Precondition: [% testsuite.precondition %]<br>
+Description: [% testsuite.description %]<br>
+</p>
+[% FOREACH tc IN testsuite.testcases %]
+<p>
+Name: <a href="[% c.uri_for('/testcase', tc.id) %]">[% tc.name %]</a><br>
+ID: [% tc.id %]<br>
+Precondition: [% tc.precondition %]<br>
+Description: [% tc.description %]<br>
+</p>
+[% END %]
