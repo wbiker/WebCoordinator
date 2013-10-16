@@ -4,6 +4,7 @@ use namespace::autoclean;
 use Data::Dump::Streamer;
 use JSON;
 use Git::Wrapper;
+use Data::Dumper;
 
 extends 'Catalyst::Model';
 
@@ -18,7 +19,7 @@ This Catalyst Model capsulate the test run data. It loads the data from a file a
 =cut
 
 has 'testrun_file' => (is => 'ro', isa => 'Str', default => './root/files/master/testrun.db');
-has 'testsuite_file' => (is => 'ro', isa => 'Str', default => './root/files/master/testrun.db');
+has 'testsuite_file' => (is => 'ro', isa => 'Str', default => './root/files/master/testsuite.db');
 has 'testcase_file' => (is => 'ro', isa => 'Str', default => './root/files/master/testcase.db');
 has 'testruns' => (is => 'ro', isa => 'HashRef');
 has 'testsuites' => (is => 'ro', isa => 'HashRef');
@@ -64,6 +65,8 @@ sub get_test_suites {
         push($ts, $self->{testsuites}->{$ts_id});
     }
 
+	my $tsref = $self->{testsuites};
+	$c->log->debug(\$tsref);
     return $ts;
 }
 
@@ -97,6 +100,7 @@ sub _load_data_files {
         	die "Could not found $file_path";
     	}
 	}
+}
 
 sub get_test_suite {
     my ($self, $c, $testsuite_id) = @_;
