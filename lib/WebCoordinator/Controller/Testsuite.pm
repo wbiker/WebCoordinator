@@ -54,6 +54,15 @@ sub add :Path('add') :Args(0) {
     $c->detach;
 }
 
+sub delete :Path('delete') :Args(1) {
+    my ($self, $c, $testsuite_id) = @_;
+
+    $c->model('TestRunData')->delete_testsuite($c, $testsuite_id);
+    $c->res->redirect($c->uri_for('list'));
+    $c->detach;
+    $c->flash(message => 'Test suite deleted');
+}
+
 =head1 AUTHOR
 
 wolf

@@ -49,6 +49,15 @@ sub add :Path('add') :Args(0) {
     $c->detach;
 }
 
+sub delete :Path('delete') :Args(1) {
+    my ($self, $c, $testcase_id) = @_;
+
+    $c->model('TestRunData')->delete_testcase($c, $testcase_id);
+    $c->flash(message => 'Test case deleted');
+    $c->res->redirect($c->uri_for('list'));
+    $c->detach;
+}
+
 =head1 AUTHOR
 
 wolf

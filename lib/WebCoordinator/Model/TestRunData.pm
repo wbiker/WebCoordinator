@@ -139,6 +139,25 @@ sub add_new_testcase {
     $self->{testcases}->{$id}->{description} = $c->req->parameters->{description};
     $self->{testcases}->{$id}->{id} = $id;
 }
+
+sub delete_testrun {
+    my ($self, $c, $testrun_id) = @_;
+
+    delete $self->{testruns}->{$testrun_id};
+}
+
+sub delete_testsuite {
+    my ($self, $c, $testsuite_id) = @_;
+
+    delete $self->{testsuites}->{$testsuite_id};
+}
+
+sub delete_testcase {
+    my ($self, $c, $testcase_id) = @_;
+
+    delete $self->{testcases}->{$testcase_id};
+}
+
 =head1 AUTHOR
 
 wolf
