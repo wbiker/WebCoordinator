@@ -45,6 +45,7 @@ sub list :Path('/testrun/list') :Args(0) {
 #    my $tref = eval { $tt };
  #   if($@) { $c->log->error($@); }
     $c->stash(testruns => $tt);
+    $c->stash(debug => Dumper $c->user);
 }
 
 =head1 AUTHOR

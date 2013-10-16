@@ -15,6 +15,12 @@
             <dt><a href="[% c.uri_for('/testcase') %]">Testcases</a></dt>
                 <dd><a href="[% c.uri_for('/testcase', 'new') %]">New</a></dd>
         </dl>
+        [% IF c.user %]
+        Logged in as [% c.user.username %] ([% c.user.person.name %])
+        <a href="[% c.uri_for('/logout') %]">Log out</a> 
+        [% ELSE %]
+        Not logged in. <a href="[% c.uri_for('/login') %]">Log in</a>.
+        [% END %]
         <hr>
         [% content %]
         <hr>

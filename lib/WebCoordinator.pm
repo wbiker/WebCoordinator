@@ -20,6 +20,10 @@ use Catalyst qw/
     -Debug
     ConfigLoader
     Static::Simple
+    Session
+    Session::State::Cookie
+    Session::Store::FastMmap
+    Authentication
 /;
 
 extends 'Catalyst';
@@ -47,8 +51,29 @@ __PACKAGE__->config(
         INCLUDE_PATH => [
             __PACKAGE__->path_to('root', 'src'),
         ],
-    }
+    },
+    session => {flash_to_stash => 1},
 );
+
+__PACKAGE__->config( 'Plugin::Authentication' => {
+    default => {
+        credential => {
+            class => 'Password',
+            password_field => 'password',
+            password_type => 'clear',
+        },
+        store => {
+            class => 'Minimal',
+            users => {
+                wolf => {
+                    password => 'utimaco',
+                    editor => 'yes',
+                    roles => [qw/edit delete/],
+                }
+            }
+        }
+    }
+});
 
 # Start the application
 __PACKAGE__->setup();
