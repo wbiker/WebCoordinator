@@ -44,17 +44,39 @@ sub get_all_testruns {
     return $self->{testruns};
 }
 
-sub modify_testrun {
+sub get_test_run {
     my $self = shift;
     my $c = shift;
-    my $tr_id = shift;
+    my $testrun_id = shift;
 
-    my $tr_ref = $self->{testruns};
+    $c->log->debug("search test run $testrun_id");
+    return $self->{testruns}->{$testrun_id};
+}
 
-    my $tr = $tr_ref->{$tr_id};
+sub get_test_suites {
+    my $self = shift;
+    my $c = shift;
+    my $testsuite_ids = shift;
 
-    my $git = Git::Wrapper->new('./root/files');
-    $c->log->debug($git->branch("$tr_id"));
+    my $ts = [];
+
+    for my $ts_id (@{$testsuite_ids}) {
+        push($ts, $self->{testsuites}->{$ts_id});
+    }
+
+    return $ts;
+}
+
+sub get_all_testsuites {
+    my ($self, $c) = @_;
+
+    return $self->{testsuites};
+}
+
+sub get_all_testcases {
+    my ($self, $c) = @_;
+
+    return $self->{testcases};
 }
 
 sub _load_data_files {
@@ -75,6 +97,11 @@ sub _load_data_files {
         	die "Could not found $file_path";
     	}
 	}
+
+sub get_test_suite {
+    my ($self, $c, $testsuite_id) = @_;
+
+    return $self->{testsuites}->{$testsuite_id};
 }
 
 =head1 AUTHOR

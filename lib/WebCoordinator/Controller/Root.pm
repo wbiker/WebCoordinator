@@ -30,24 +30,7 @@ The root page (/)
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
 
-    # Hello World
-    my $tr_data = $c->model('TestRunData');
-
-    my $tt = $tr_data->get_all_testruns($c);
-#    my $tref = eval { $tt };
- #   if($@) { $c->log->error($@); }
-    $c->stash(testruns => $tt);
-
-    my $str = Dump($tt)->Out();
-    $c->stash(debug => $str);
-}
-
-sub modify :Path(/modify) :Args(1) {
-    my ($self, $c, $tr_id) = @_;
-
-    $c->log->info("modify: ");
-    $c->model('TestRunData')->modify_testrun($c, $tr_id);
-    $c->stash(template => 'index.tt2');
+    $c->forward('testrun/list');
 }
 
 =head2 default

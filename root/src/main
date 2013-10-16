@@ -8,12 +8,12 @@
     <p>[% message %]</p>
     [% END %]
         <dl>
-            <dt><a href="[% c.uri_for('/Testruns') %]">Testruns</a></dt>
-                <dd><a href="[% c.uri_for('/Testruns', 'add') %]">New</a></dd>
-            <dt><a href="[% c.uri_for('/TestSuites/list') %]">Testsuites</a></dt>
-                <dd><a href="[% c.uri_for('/testsuites', 'add') %]">New</a></dd>
-            <dt><a href="[% c.uri_for('/Testcases') %]">Testcases</a></dt>
-                <dd><a href="[% c.uri_for('/testsuites', 'add') %]">New</a></dd>
+            <dt><a href="[% c.uri_for('/testrun/list') %]">Testruns</a></dt>
+                <dd><a href="[% c.uri_for('/testrun', 'new') %]">New</a></dd>
+            <dt><a href="[% c.uri_for('/testsuite/list') %]">Testsuites</a></dt>
+                <dd><a href="[% c.uri_for('/testsuite', 'new') %]">New</a></dd>
+            <dt><a href="[% c.uri_for('/testcase') %]">Testcases</a></dt>
+                <dd><a href="[% c.uri_for('/testcase', 'new') %]">New</a></dd>
         </dl>
         <hr>
         [% content %]
