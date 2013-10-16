@@ -5,6 +5,7 @@ use Data::Dump::Streamer;
 use JSON;
 use Git::Wrapper;
 use Data::Dumper;
+use Digest::MD5 qw(md5_hex);
 
 extends 'Catalyst::Model';
 
@@ -108,6 +109,36 @@ sub get_test_suite {
     return $self->{testsuites}->{$testsuite_id};
 }
 
+sub add_new_testrun {
+    my ($self, $c) = @_;
+
+    # data of new test run are stored in $c->request->parameters
+    # first create id
+    my $id = md5_hex(time);
+
+    $self->{testruns}->{$id}->{name} = $c->req->parameters->{name};
+    $self->{testruns}->{$id}->{$id} = $id;
+}
+
+sub add_new_testsuite {
+    my ($self, $c) = @_;
+
+    my $id = md5_hex(time);
+
+    $self->{testsuites}->{$id}->{name} = $c->req->parameters->{name};
+    $self->{testsuites}->{$id}->{description} = $c->req->parameters->{description};
+    $self->{testsuites}->{$id}->{id} = $id;
+}
+
+sub add_new_testcase {
+    my ($self, $c) = @_;
+
+    my $id = md5_hex(time);
+
+    $self->{testcases}->{$id}->{name} = $c->req->parameters->{name};
+    $self->{testcases}->{$id}->{description} = $c->req->parameters->{description};
+    $self->{testcases}->{$id}->{id} = $id;
+}
 =head1 AUTHOR
 
 wolf

@@ -1,6 +1,7 @@
 package WebCoordinator::Controller::Testcase;
 use Moose;
 use namespace::autoclean;
+use WebCoordinator::Form::AddTestcase;
 
 BEGIN { extends 'Catalyst::Controller'; }
 
@@ -27,13 +28,26 @@ sub index :Path :Args(0) {
     $c->forward('/testcase/list');
 }
 
-sub list :Path :Args(0) {
+sub list :Path('list') :Args(0) {
     my ($self, $c) = @_;
 
     my $testcases = $c->model('TestRunData')->get_all_testcases($c);
     $c->stash(testcases => $testcases);
 }
 
+sub add :Path('add') :Args(0) {
+    my ($self, $c) = @_;
+
+    my $form = WebCoordinator::Form::AddTestcase->new;
+    $c->stash(form => $form);
+    $form->process(params => $c->req->parameters);
+    return unless $form->validated;
+
+    $c->model('TestRunData')->add_new_testcase($c);
+    $c->flash(message => 'New test case created');
+    $c->res->redirect($c->uri_for('list'));
+    $c->detach;
+}
 
 =head1 AUTHOR
 

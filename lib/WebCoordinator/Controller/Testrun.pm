@@ -2,6 +2,7 @@ package WebCoordinator::Controller::Testrun;
 use Moose;
 use namespace::autoclean;
 use Data::Dumper;
+use WebCoordinator::Form::AddTestrun;
 
 BEGIN { extends 'Catalyst::Controller'; }
 
@@ -45,7 +46,22 @@ sub list :Path('/testrun/list') :Args(0) {
 #    my $tref = eval { $tt };
  #   if($@) { $c->log->error($@); }
     $c->stash(testruns => $tt);
-    $c->stash(debug => Dumper $c->user);
+    $c->stash(debug => Dumper $c->session);
+}
+
+sub add :Path('add') :Args(0) {
+    my ($self, $c) = @_;
+
+    my $form = WebCoordinator::Form::AddTestrun->new;
+    $c->stash(form => $form);
+    $form->process(params => $c->req->parameters);
+
+    return unless $form->validated;
+
+    $c->model('TestRunData')->add_new_testrun($c);
+    $c->flash(message => 'New test run created');
+    $c->res->redirect($c->uri_for('list'));
+    $c->detach;
 }
 
 =head1 AUTHOR

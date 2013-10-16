@@ -2,6 +2,7 @@ package WebCoordinator::Controller::Testsuite;
 use Moose;
 use namespace::autoclean;
 use Data::Dumper;
+use WebCoordinator::Form::AddTestsuite;
 
 BEGIN { extends 'Catalyst::Controller'; }
 
@@ -30,7 +31,7 @@ sub testsuite :Path('/testsuite') :Args(1) {
     $c->stash(testsuite => $testsuite);
 }
 
-sub list :Path('/testsuite/list') :Arg(0) {
+sub list :Path('/testsuite/list') :Args(0) {
     my ($self, $c) = @_;
 
     my $testsuites = $c->model('TestRunData')->get_all_testsuites($c);
@@ -38,6 +39,20 @@ sub list :Path('/testsuite/list') :Arg(0) {
     $c->stash(debug => Dumper $testsuites);
 }
 
+sub add :Path('add') :Args(0) {
+    my ($self, $c) = @_;
+    
+    my $form = WebCoordinator::Form::AddTestsuite->new;
+    $c->stash(form => $form);
+    $form->process(params => $c->req->parameters);
+
+    return unless $form->validated;
+
+    $c->model('TestRunData')->add_new_testsuite($c);
+    $c->flash(message => 'New test suite created');
+    $c->res->redirect($c->uri_for('list'));
+    $c->detach;
+}
 
 =head1 AUTHOR
 
