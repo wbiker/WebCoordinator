@@ -17,28 +17,19 @@ This Catalyst Model capsulate the test run data. It loads the data from a file a
 
 =cut
 
-has 'testrun_data' => (is => 'ro', isa => 'HashRef');
-has 'testrun_file' => (is => 'ro', isa => 'Str', default => './root/files/testruns.dat');
-has 'testsuite_file' => (is => 'ro', isa => 'Str', default => './root/files/testruns.dat');
-has 'error' => (is => 'rw', isa => 'Str');
+has 'testrun_file' => (is => 'ro', isa => 'Str', default => './root/files/master/testrun.db');
+has 'testsuite_file' => (is => 'ro', isa => 'Str', default => './root/files/master/testrun.db');
+has 'testcase_file' => (is => 'ro', isa => 'Str', default => './root/files/master/testcase.db');
 has 'testruns' => (is => 'ro', isa => 'HashRef');
+has 'testsuites' => (is => 'ro', isa => 'HashRef');
+has 'testcases' => (is => 'ro', isa => 'HashRef');
 
 sub BUILD {
     my $self = shift;
 
     # This method is called by Moose after object creation.
     # I use this to load the data from the file(s)
-    if(-e $self->{testrun_file}) {
-        my $file = $self->{testrun_file};
-        my $tr = do $file;
-        $self->{error} .= "couldn't parse testrun_file: $@" if $@;
-        $self->{error} .= "Could not do testrun_file: $!" unless defined $tr;
-        $self->{error} .= "Could not run testruns_file" unless $tr;
-        $self->{testruns} = $tr;
-    }
-    else {
-        $self->{error} = 'Could not found testrun_file';
-    }
+    $self->_load_data_files();
 }
 
 sub get_all_testruns {
@@ -46,21 +37,12 @@ sub get_all_testruns {
     my $c = shift;
 
     # count all keys of the testruns hash. SO, I know whether I have test runs or not.
-    $c->log->info($self->{error});
 #    my %testruns = %{$self->{testruns}};
 #    my @tr_keys = keys%testruns;
 #    $c->log("Does not found any test runs") if 0 == @tr_keys;
 
     return $self->{testruns};
-
-    my %trs = %{$self->{testruns}};
-    my $trsa = [];
-    for my $key (keys %trs) {
-        push($trsa, $trs{$key});
-    }
-    return $trsa;
 }
-
 
 sub modify_testrun {
     my $self = shift;
@@ -74,6 +56,27 @@ sub modify_testrun {
     my $git = Git::Wrapper->new('./root/files');
     $c->log->debug($git->branch("$tr_id"));
 }
+
+sub _load_data_files {
+	my $self = shift;
+	
+	for my $file (qw(testrun testsuite testcase)) {
+		my $file_name = $file."_file";
+		my $file_path = $self->{$file_name};
+	    if(-e $file_path) {
+	        my $tr = do $file_path;
+        	die "couldn't parse $file_path: $@" if $@;
+    	    die "Could not do $file_path: $!" unless defined $tr;
+	        die "Could not run $file_name" unless $tr;
+			my $variable = $file."s";
+        	$self->{$variable} = $tr;
+    	}
+	    else {
+        	die "Could not found $file_path";
+    	}
+	}
+}
+
 =head1 AUTHOR
 
 wolf
