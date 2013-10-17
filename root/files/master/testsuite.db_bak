@@ -1,0 +1,2242 @@
+$testsuites = {
+                "{016673A9-B8AA-4AAF-BC20-01C76DDE57E9}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{016673A9-B8AA-4AAF-BC20-01C76DDE57E9}',
+                                                              name    => 'Uninstall BackEnd',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{01D2E4A7-5B6D-4968-82FA-0089838940AD}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{01D2E4A7-5B6D-4968-82FA-0089838940AD}',
+                                                              name    => 'Stop all running VmWare images on host VIX API',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{023B2AAD-824C-454E-987F-09BB17417347}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{023B2AAD-824C-454E-987F-09BB17417347}',
+                                                              name    => 'AVManager: Update Antivirus',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{02FFD193-BD52-4DC3-B2AF-C83B824BAE49}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{02FFD193-BD52-4DC3-B2AF-C83B824BAE49}',
+                                                              name    => 'AutWrapper: Use the SGFileEncWizard.exe to initial encrypt FileShare partitions',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{03EAE82A-7B53-4F8E-AFC0-07036EF6CE19}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{03EAE82A-7B53-4F8E-AFC0-07036EF6CE19}',
+                                                              name    => 'Check LocalCache features LC Backup',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{04410C95-401E-42E0-A94F-9D193EC32D3C}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{04410C95-401E-42E0-A94F-9D193EC32D3C}',
+                                                              name    => 'CloudStorage: CleanUp directories & Files',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{04A2CF35-7DF9-4E1C-848C-36522ADDDAA5}" => {
+                                                              description
+                                                                      => 'Installed a MSI that already exists in C:\\TA\\msis',
+                                                              id      => '{04A2CF35-7DF9-4E1C-848C-36522ADDDAA5}',
+                                                              name    => 'SGN Client silent installation',
+                                                              precondition
+                                                                      => 'The MSI must be copied to the C:\\TA\\msis folder on your image(s)'
+                                                            },
+                "{04E194A9-9F1B-4C6C-841A-0B1DAB85B243}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{04E194A9-9F1B-4C6C-841A-0B1DAB85B243}',
+                                                              name    => 'Installing SGN Silently on Workgroup Client',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{055375FD-92FA-4345-9C26-ED933CC04CC2}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{055375FD-92FA-4345-9C26-ED933CC04CC2}',
+                                                              name    => 'P1561.08 -- check user certs: 2x SHA-256, 0x SHA-1',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{05B6EDBA-DB44-4AA7-9D44-F7A1693F3F92}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{05B6EDBA-DB44-4AA7-9D44-F7A1693F3F92}',
+                                                              name    => 'Copy Ffencryption tool (ddl and exe) to working directory',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{073F5C37-4599-4844-91EB-0009D57F79FB}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{073F5C37-4599-4844-91EB-0009D57F79FB}',
+                                                              name    => 'P1561.08 -- Create SHA-256 POA user cert (echo)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{078A65D5-F40B-4286-9A2B-626267B4B0FB}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{078A65D5-F40B-4286-9A2B-626267B4B0FB}',
+                                                              name    => 'Copy TAs',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{08CD8990-ACA8-437A-B686-721BD539C432}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{08CD8990-ACA8-437A-B686-721BD539C432}',
+                                                              name    => 'Wait until OS Hdd is idle (@IDLETIME@ and @MEASURETIME)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{097D78E3-DFB3-466D-B58F-5BE59C496298}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{097D78E3-DFB3-466D-B58F-5BE59C496298}',
+                                                              name    => 'RegTest - API (Inventory)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{09EAF0C5-E4C1-4C0E-A95D-00ABD9A62565}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{09EAF0C5-E4C1-4C0E-A95D-00ABD9A62565}',
+                                                              name    => 'P1561.08 -- check user certs: 2x SHA-256, 1x SHA-1',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{0A13F0C8-03D5-4325-94B7-50A1584940B1}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{0A13F0C8-03D5-4325-94B7-50A1584940B1}',
+                                                              name    => 'DX Install Only SGPortable Test (Host) Part II',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{0CE2BC2E-0210-48B4-9C87-275F22193B89}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{0CE2BC2E-0210-48B4-9C87-275F22193B89}',
+                                                              name    => 'Antivirus Forefront Preparations',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{0D486E4D-9419-4F03-9578-9EE15F23784B}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{0D486E4D-9419-4F03-9578-9EE15F23784B}',
+                                                              name    => 'RegTest - API (ADD Objects)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{0D54E53A-41C3-4D90-0AF0-2AC0E15644B4}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{0D54E53A-41C3-4D90-0AF0-2AC0E15644B4}',
+                                                              name    => 'check SGN activation mode: ENTERPRISE',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{0E01E834-D880-4DBD-8B1B-31F1E436DA36}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{0E01E834-D880-4DBD-8B1B-31F1E436DA36}',
+                                                              name    => 'DX Attach USB Device',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{0E09E5D6-D03B-43AE-8095-1270B75F3073}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{0E09E5D6-D03B-43AE-8095-1270B75F3073}',
+                                                              name    => 'Copy Eicar Fake Virus File new',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{0EF83711-4B25-4AF3-BBD5-825A5911B299}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{0EF83711-4B25-4AF3-BBD5-825A5911B299}',
+                                                              name    => 'P664 FileShare: TRS13 - Encryption Status in Explorer (Overlay Icon) (TestEnv) new',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{0FAAD30C-E03C-474B-0BF2-47232B73F9E1}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{0FAAD30C-E03C-474B-0BF2-47232B73F9E1}',
+                                                              name    => 'SGN: client-server synchronization within a given timespan VIX',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{1127B866-D89D-4732-89F9-58BDC1105286}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{1127B866-D89D-4732-89F9-58BDC1105286}',
+                                                              name    => 'GPM Copy all Files for Groupmembership Tests',
+                                                              precondition
+                                                                      => 'Nothing'
+                                                            },
+                "{114027E4-E1A0-4872-A64C-00892F70FFDE}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{114027E4-E1A0-4872-A64C-00892F70FFDE}',
+                                                              name    => 'Antivirus Sophos Preparations',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{1206D7E5-30B4-4227-B87E-0B83A0FC1FA0}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{1206D7E5-30B4-4227-B87E-0B83A0FC1FA0}',
+                                                              name    => 'Domain Login with SGN as @USER with @PWD on @DOMAIN (SGN installed, no umastate check, no .cer, .p12, .xml check)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{123CBFE2-0143-4314-9C46-87618D9EAE91}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{123CBFE2-0143-4314-9C46-87618D9EAE91}',
+                                                              name    => 'RegTest - P499b: Server contact negative test',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{13233C5D-2414-4393-9891-3F2E6027488D}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{13233C5D-2414-4393-9891-3F2E6027488D}',
+                                                              name    => 'P1498 File Filter Heuristics - Prepare Suite 2_pqt',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{163D86E4-38F8-483D-9D11-0E207C4E76BE}" => {
+                                                              description
+                                                                      => "This starts the unattented installation of the McAfee Antivirus scanner.".
+	"\r\nThe program is invoked so:\r\nSetupVSE.exe ADDLOACL=ALL /qb /norestart",
+                                                              id      => '{163D86E4-38F8-483D-9D11-0E207C4E76BE}',
+                                                              name    => 'Antivirus McAfee silent installation',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{1784D56B-53A6-44D5-836B-BDFBF1A53D26}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{1784D56B-53A6-44D5-836B-BDFBF1A53D26}',
+                                                              name    => 'SGN Clients: check ECD-files match sys or dll files',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{17EFA486-1AC8-43AB-ACF7-DF5391DA4288}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{17EFA486-1AC8-43AB-ACF7-DF5391DA4288}',
+                                                              name    => 'RegTest - API (Pre-Tests)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{18180A5C-CDAC-40E4-8ABB-875D66C26A41}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{18180A5C-CDAC-40E4-8ABB-875D66C26A41}',
+                                                              name    => 'Create a SGN Management Center Workgroup',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{19445458-B045-4A71-B713-0015C6B576CA}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{19445458-B045-4A71-B713-0015C6B576CA}',
+                                                              name    => 'Copy and update SGN Managed Client Configuration Package + Offline Client .bak dialog check',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{19C7B3F6-20B7-4581-A2FE-0193E74241CF}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{19C7B3F6-20B7-4581-A2FE-0193E74241CF}',
+                                                              name    => 'P1561.08 -- set SHA-256 & generate managed client config',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{1CD1A633-537C-4350-A039-00FE4540E2C0}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{1CD1A633-537C-4350-A039-00FE4540E2C0}',
+                                                              name    => 'MS Windows: change user password from: @<os>OLDUSERPWD to: @<os>NEWUSERPWD (SGN installed)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{1E88C38D-D652-4B8C-0B12-203B8D8CA1B4}" => {
+                                                              description
+                                                                      => 'Revert VM images to a particular snapshot.',
+                                                              id      => '{1E88C38D-D652-4B8C-0B12-203B8D8CA1B4}',
+                                                              name    => 'PolicyEditor and Offline Client: Revert To TA',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{1E9809F6-A1A3-43A2-81CC-B142CCCE2FA7}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{1E9809F6-A1A3-43A2-81CC-B142CCCE2FA7}',
+                                                              name    => 'Check Sha Certificates',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{2086F373-C351-4DC6-9A6B-01EB3C8A2EA4}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{2086F373-C351-4DC6-9A6B-01EB3C8A2EA4}',
+                                                              name    => 'DX Install Only SGPortable Test (VMWare) Part III',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{2132292D-BB2F-4C8E-A87A-E4335E46F994}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{2132292D-BB2F-4C8E-A87A-E4335E46F994}',
+                                                              name    => 'Check VMwareTools and SGN Master',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{237639BF-EF1C-4EBF-93B4-05233D336AD1}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{237639BF-EF1C-4EBF-93B4-05233D336AD1}',
+                                                              name    => 'tmp: DX Install Only Revert Image Snapshots',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{23DF54C4-BA65-4085-8D46-B7FB7322FF24}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{23DF54C4-BA65-4085-8D46-B7FB7322FF24}',
+                                                              name    => 'Vmware: Revert And Start Snapshot',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{24C1A5C6-4C7C-4293-9FF8-11E6C03B65AD}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{24C1A5C6-4C7C-4293-9FF8-11E6C03B65AD}',
+                                                              name    => 'P1498 File Filter Heuristics - Run Suite 1 PQT-Linz',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{24FC8531-16AC-45F0-8D74-665A4F7327B0}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{24FC8531-16AC-45F0-8D74-665A4F7327B0}',
+                                                              name    => 'Prepare Server for WHD',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{27726190-A986-4484-98F1-002BC8D62EC9}" => {
+                                                              description
+                                                                      => 'now the drive e: is  accessable',
+                                                              id      => '{27726190-A986-4484-98F1-002BC8D62EC9}',
+                                                              name    => 'GPM OU Key with VBE part 3',
+                                                              precondition
+                                                                      => "1) Snapshot: <branchtag>Installation_complete_POA_Administrator_ready mu".
+	"st be there\r\n2) GPM Copy all Files for Groupmembership Tests\r\n3) GPM Cre".
+	"ate Group, AddUser, AD Synch and assign Group-key\r\n4) GPM OU Key with VB".
+	"E part 1\r\n5) SGN log off and on the sam"
+                                                            },
+                "{291AE0C1-A935-41B7-BA37-0246DD18E77A}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{291AE0C1-A935-41B7-BA37-0246DD18E77A}',
+                                                              name    => 'Disable Autologin on Clients (local admin)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{294C5676-98AE-462E-A5D6-D9DC9565738F}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{294C5676-98AE-462E-A5D6-D9DC9565738F}',
+                                                              name    => 'Antivirus Norton silent installation new',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{29C0FEDD-6B84-4039-0A1C-5FCA665150BF}" => {
+                                                              description
+                                                                      => 'Replaced the original one thus created with DPGTestautomation',
+                                                              id      => '{29C0FEDD-6B84-4039-0A1C-5FCA665150BF}',
+                                                              name    => 'Installs ONLY the SGN BackEnd (MC, Server and Client) - UNATTENTED New',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{2BC480C6-F4A2-45A9-B574-B7AF6348C237}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{2BC480C6-F4A2-45A9-B574-B7AF6348C237}',
+                                                              name    => 'CP check if CP is active part2',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{2BF1E9FF-4191-488A-AAFB-7FCDDFBBFE63}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{2BF1E9FF-4191-488A-AAFB-7FCDDFBBFE63}',
+                                                              name    => 'verify that key ring got built up (as $DUSER)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{2BF92C23-8165-45C5-9C48-015F178C6B95}" => {
+                                                              description
+                                                                      => 'The sleep at 160 is needed because on W7X64 the UMA is not enabled without it.',
+                                                              id      => '{2BF92C23-8165-45C5-9C48-015F178C6B95}',
+                                                              name    => 'Domain Login with SGN as @USER with @PWD on @DOMAIN (SGN installed) Autologin Updated',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{2C30D8A2-5145-4DC1-89C2-E47BA71DABC6}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{2C30D8A2-5145-4DC1-89C2-E47BA71DABC6}',
+                                                              name    => 'DX - Key Import Test Preparations',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{2C8E4341-67E4-47B8-BF9E-0524B27760FE}" => {
+                                                              description
+                                                                      => 'sleep',
+                                                              id      => '{2C8E4341-67E4-47B8-BF9E-0524B27760FE}',
+                                                              name    => 'sleep',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{2E327248-8683-42C7-BEAA-0389DA242545}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{2E327248-8683-42C7-BEAA-0389DA242545}',
+                                                              name    => 'Catch - Add users by name to the domain',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{2EC4B5D6-335D-4A45-9747-00EE14F9C360}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{2EC4B5D6-335D-4A45-9747-00EE14F9C360}',
+                                                              name    => 'Take Snapshot Installation_complete_POA_Administrator_ready on all OS\'s WBA w/ waitfordesktop',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{2FF98716-F787-4D87-AB85-78F533B7D5ED}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{2FF98716-F787-4D87-AB85-78F533B7D5ED}',
+                                                              name    => 'Prepare Clients for SGN Installation using AUTOLOGON WORKGROUP',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{30A5AE28-4381-4164-8EDB-0F4559FE41FB}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{30A5AE28-4381-4164-8EDB-0F4559FE41FB}',
+                                                              name    => 'P664 FileShare - Client Test Run -  NTFS (E:) (TestEnv)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{31E3E8C9-2034-4192-8DF6-92EE4053EFBE}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{31E3E8C9-2034-4192-8DF6-92EE4053EFBE}',
+                                                              name    => 'POA login (NoPassThrough) and MS Windows: Add new User: @<os>USER, pwd:@<os>PWD (SGN installed, POA active and POA User: $DUSER)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{32BA074A-82E0-4E67-A3C1-CF83226E204A}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{32BA074A-82E0-4E67-A3C1-CF83226E204A}',
+                                                              name    => 'Set SGN Trace Level to 0 VIX',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{32FC50CE-A1B2-4FA5-B5D7-0254EAE2ED56}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{32FC50CE-A1B2-4FA5-B5D7-0254EAE2ED56}',
+                                                              name    => 'POA login (NoPassThrough) and  MS Windows: Add new User: @USER, pwd:@PWD (SGN installed, POA active and POA User: $DUSER)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{339CBB06-364F-4642-8A31-61768BBF225C}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{339CBB06-364F-4642-8A31-61768BBF225C}',
+                                                              name    => 'VBE-Encryption of Drive C part2',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{33A81614-EB48-425A-A26C-33C2CBC3D238}" => {
+                                                              description
+                                                                      => 'This suite set policies which encrypt ermovable devices and handled the UnhandledApplication.exe as unhandled application.',
+                                                              id      => '{33A81614-EB48-425A-A26C-33C2CBC3D238}',
+                                                              name    => 'DX Unhandled Application',
+                                                              precondition
+                                                                      => "SGN is installed\r\nDX policies are imported."
+                                                            },
+                "{35F4A585-746F-4109-BF28-686F144FF2A2}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{35F4A585-746F-4109-BF28-686F144FF2A2}',
+                                                              name    => 'Prepare BackEnd For SGN Smoketest',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{36994663-4190-4D7A-B119-074D2541DB28}" => {
+                                                              description
+                                                                      => "now the drive f: is   not accessable\r\n- move back User:Administrator to ".
+	"OU: users",
+                                                              id      => '{36994663-4190-4D7A-B119-074D2541DB28}',
+                                                              name    => 'GPM Group Key with FBE part 2',
+                                                              precondition
+                                                                      => "1) Snapshot: <branchtag>Installation_complete_POA_Administrator_ready mu".
+	"st be there\r\n2) GPM Copy all Files for Groupmembership Tests\r\n3) GPM Cre".
+	"ate Group, AddUser, AD Synch and assign Group-key\r\n4) GPM OU Key with FB".
+	"E part 1\r\n5) SGN log off and on the sam"
+                                                            },
+                "{37674668-AB2D-4C18-089C-899736EB1754}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{37674668-AB2D-4C18-089C-899736EB1754}',
+                                                              name    => 'MS Windows: Domain Login as @USER with @pwd on @DOMAIN',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{396B5297-8D02-4BA3-98EB-87254E72E14A}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{396B5297-8D02-4BA3-98EB-87254E72E14A}',
+                                                              name    => 'MS Windows: change user password from: @<os>OLDUSERPWD to: @<os>NEWUSERPWD (SGN installed) and check Eventlog',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{3C6ED744-EA56-4848-B222-0551D2349703}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{3C6ED744-EA56-4848-B222-0551D2349703}',
+                                                              name    => 'POA login (NoPassThrough) and MS Windows: Add new User: @<os>USER, pwd:@<os>PWD (SGN installed, POA active and POA User: $DUSER) VIX',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{3CBF71A3-98ED-4F08-85D3-EFB6B6B0E325}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{3CBF71A3-98ED-4F08-85D3-EFB6B6B0E325}',
+                                                              name    => 'DX MEK Test (Vmware) Part I',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{3E844B81-D8F6-414A-08DF-5426EC3F5847}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{3E844B81-D8F6-414A-08DF-5426EC3F5847}',
+                                                              name    => 'RegTest: P499b - Check company certificate (Bravo <2011-09-25)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{3F39748D-57E2-4F99-A31D-AAFC7D53FB22}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{3F39748D-57E2-4F99-A31D-AAFC7D53FB22}',
+                                                              name    => 'Android: Build And Install',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{42CC246C-BAC0-4B3C-B647-09BF776348F9}" => {
+                                                              description
+                                                                      => 'A package crated with the PolicyEditor must exists.',
+                                                              id      => '{42CC246C-BAC0-4B3C-B647-09BF776348F9}',
+                                                              name    => 'Install MSI Silently-> PolicyEditor Config Package',
+                                                              precondition
+                                                                      => 'Config package must be exists.'
+                                                            },
+                "{43466AFB-D2B4-4C33-BFA5-03A6B740A2A3}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{43466AFB-D2B4-4C33-BFA5-03A6B740A2A3}',
+                                                              name    => 'Copy and install DEBUG SGN Client',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{4376377A-7E6B-4503-88C7-ED7CEF9720FA}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{4376377A-7E6B-4503-88C7-ED7CEF9720FA}',
+                                                              name    => 'SGN-WHD: User Login and check C/R creation',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{439B809B-B064-4765-BB17-113147A959CB}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{439B809B-B064-4765-BB17-113147A959CB}',
+                                                              name    => 'Start Clients from it\'s current state - wait for shutdown (after reboot) without W8',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{43D1562C-0711-48A4-A783-005F119734E3}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{43D1562C-0711-48A4-A783-005F119734E3}',
+                                                              name    => 'Prepare Server/Clients for SGN Bitlocker',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{4552FE42-2A78-444F-AD38-9CD5417F746C}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{4552FE42-2A78-444F-AD38-9CD5417F746C}',
+                                                              name    => 'Domain Administrator Login  (SGN installed) W8 only',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{48DD248E-C368-4FB7-82BC-017259B221AC}" => {
+                                                              description
+                                                                      => 'now the drive f: is  accessable',
+                                                              id      => '{48DD248E-C368-4FB7-82BC-017259B221AC}',
+                                                              name    => 'GPM Group Key with FBE part 3',
+                                                              precondition
+                                                                      => "1) Snapshot: <branchtag>Installation_complete_POA_Administrator_ready mu".
+	"st be there\r\n2) GPM Copy all Files for Groupmembership Tests\r\n3) GPM Cre".
+	"ate Group, AddUser, AD Synch and assign Group-key\r\n4) GPM OU Key with FB".
+	"E part 1\r\n5) SGN log off and on the sam"
+                                                            },
+                "{4964A239-1D5A-4A53-B4B2-4FA18D4340C1}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{4964A239-1D5A-4A53-B4B2-4FA18D4340C1}',
+                                                              name    => 'P1561: RegTest: P499b - Installs a second SGN backend',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{49F2C731-DF67-42E8-A0D1-C3985E27874B}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{49F2C731-DF67-42E8-A0D1-C3985E27874B}',
+                                                              name    => 'VMware: Create Snapshot',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{4B46F198-84D7-422E-B255-7CED497D46B5}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{4B46F198-84D7-422E-B255-7CED497D46B5}',
+                                                              name    => 'check if User is UMA owner on machine',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{4B8BF8CE-2315-46CB-9DA4-3CF31E9A782D}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{4B8BF8CE-2315-46CB-9DA4-3CF31E9A782D}',
+                                                              name    => 'P499b - generate client config and CCO in Alpha backend',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{4BF997D6-2037-4A9D-BAF0-0F3A779DB8F7}" => {
+                                                              description
+                                                                      => "This copied the McAfee installation files onto the client.\r\nThe files wa".
+	"s extracted from a zip archive and are stored on my transfer directory.",
+                                                              id      => '{4BF997D6-2037-4A9D-BAF0-0F3A779DB8F7}',
+                                                              name    => 'Antivirus McAfee Preparations',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{4CFFBAE6-957D-4797-90EF-38B928A550CC}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{4CFFBAE6-957D-4797-90EF-38B928A550CC}',
+                                                              name    => 'P1561.08 -- Create SHA-1 SO cert (delta)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{4D48B038-4ACD-4903-B5B0-63CF77697137}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{4D48B038-4ACD-4903-B5B0-63CF77697137}',
+                                                              name    => 'Uninstall Clients',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{4E8CBA5D-5BE6-4A3A-9E35-04C06598F3D7}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{4E8CBA5D-5BE6-4A3A-9E35-04C06598F3D7}',
+                                                              name    => 'RSOP - Tests: override and inheritance',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{4FAB8142-F900-4A96-AF57-C147F2EA84BA}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{4FAB8142-F900-4A96-AF57-C147F2EA84BA}',
+                                                              name    => 'P664 FileShare - Import Policies (TestEnv)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{51C23373-899B-42F7-933D-94DEBA2E3051}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{51C23373-899B-42F7-933D-94DEBA2E3051}',
+                                                              name    => 'RSOP - Tests: check user and machine policies Part 1 (UserPWDRule)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{53348BFE-ECB7-4B24-B31D-0664178D9E11}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{53348BFE-ECB7-4B24-B31D-0664178D9E11}',
+                                                              name    => 'POA Login without Windows logon @USER @PWD @DOMAIN @POAOPTION @RETRYLOGIN',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{54DAF670-1BDF-47C4-9FAE-B3AFB387201C}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{54DAF670-1BDF-47C4-9FAE-B3AFB387201C}',
+                                                              name    => 'P1561: RegTest: P499b - Installs the SGN backend (MC, Server and Client)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{55813F8C-0D9C-45FD-92CE-0BB833440580}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{55813F8C-0D9C-45FD-92CE-0BB833440580}',
+                                                              name    => 'Start Clients from it\'s current state - wait for shutdown (after reboot)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{559A7727-7143-4193-AE28-5ED3F2467382}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{559A7727-7143-4193-AE28-5ED3F2467382}',
+                                                              name    => 'RegTest: P499b - Check company certificate (Alpha)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{55B539F1-55AE-4EB0-975A-000C51B05059}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{55B539F1-55AE-4EB0-975A-000C51B05059}',
+                                                              name    => 'Copy the SGN WHD msi package from $MSIPATH to $LOCALMSIPATH and into the Server 2003 Vmware image',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{55C6E5C2-7F0B-43E4-8E6F-05D1CB47B765}" => {
+                                                              description
+                                                                      => "Copy all nessecary files to the guests.\r\nscriptConfig.xml\r\nSGNClient.msi".
+	"\r\nSGNPolicyEditor.msi\r\nTestAutomationEnvironment.dll",
+                                                              id      => '{55C6E5C2-7F0B-43E4-8E6F-05D1CB47B765}',
+                                                              name    => 'PolicyEditor and Offline Client: Preparations',
+                                                              precondition
+                                                                      => "Revert To Snapshot ReadyToTA\r\nand local administrator is logged in."
+                                                            },
+                "{563ACCC1-C63A-4CC2-B9C7-0FB7C5953E54}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{563ACCC1-C63A-4CC2-B9C7-0FB7C5953E54}',
+                                                              name    => 'USB2VMware',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{575E2A03-F297-45B1-911F-C7CDA0617A36}" => {
+                                                              description
+                                                                      => 'Added three sleeps. This is needed by XP because of the antivirus the start of the os needs much more longer than normal.',
+                                                              id      => '{575E2A03-F297-45B1-911F-C7CDA0617A36}',
+                                                              name    => 'Take Snapshot Installation_complete_POA_Administrator_ready on all OS\'s anti',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{59E3D537-E58D-4989-0A92-2CCB1FED8BB1}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{59E3D537-E58D-4989-0A92-2CCB1FED8BB1}',
+                                                              name    => 'Installs the SGN BackEnd (MC, Server and register Server) as @USER with @PWD',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{5B066E57-89CC-4D98-91A6-F96E5FE2AA9E}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{5B066E57-89CC-4D98-91A6-F96E5FE2AA9E}',
+                                                              name    => 'P1498 File Filter Heuristics - Run Suite 3',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{5D0AB3E1-B4A5-4CFB-0AB9-9C4880681CB7}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{5D0AB3E1-B4A5-4CFB-0AB9-9C4880681CB7}',
+                                                              name    => 'RegTest: P499b - Install Python & the Python scripts',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{5D166C0E-6004-44D8-B98B-E466F517EC53}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{5D166C0E-6004-44D8-B98B-E466F517EC53}',
+                                                              name    => 'CloudStorage: select key on client for each cloud provider',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{5E502564-B48B-408C-B07D-9044C28A76C8}" => {
+                                                              description
+                                                                      => 'veryfies that UMA flags are set correctly in the database',
+                                                              id      => '{5E502564-B48B-408C-B07D-9044C28A76C8}',
+                                                              name    => 'Catch - P1725 Windows Only User - Verify UMA',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{608DFD49-6321-4CBC-8766-079F60842079}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{608DFD49-6321-4CBC-8766-079F60842079}',
+                                                              name    => 'POA Login  @IGNOREFAIL',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{60CAB242-4C31-4680-A527-0494574A8867}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{60CAB242-4C31-4680-A527-0494574A8867}',
+                                                              name    => 'Check LocalCache features LC Corruption',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{60EC0FE9-9982-4B1C-AF12-92B7232146B7}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{60EC0FE9-9982-4B1C-AF12-92B7232146B7}',
+                                                              name    => 'Vmware: Reboot Clients',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{6346EB74-5964-42F5-92A2-669DBAF38DC5}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{6346EB74-5964-42F5-92A2-669DBAF38DC5}',
+                                                              name    => 'RegTest: P499b - Server contact positive test',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{649006BC-0634-4994-9427-E9754D621552}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{649006BC-0634-4994-9427-E9754D621552}',
+                                                              name    => 'Antivirus Kaspersky Preparations new',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{67C57150-DC7E-491D-ACDF-D148BF295BCF}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{67C57150-DC7E-491D-ACDF-D148BF295BCF}',
+                                                              name    => 'Installs the DEBUG SGN BackEnd (MC, Server)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{687E02AD-0864-4356-B8FB-BE3DAA9F976C}" => {
+                                                              description
+                                                                      => "Wait until the Desktop is shown.\r\nBehind the scene it tries to log on vi".
+	"a VIX API until the login passed.",
+                                                              id      => '{687E02AD-0864-4356-B8FB-BE3DAA9F976C}',
+                                                              name    => 'VMware: Wait for Desktop (clients)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{6C527C59-2327-43C7-B9C8-90D04CB93B5F}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{6C527C59-2327-43C7-B9C8-90D04CB93B5F}',
+                                                              name    => 'Prepare BackEnd For OfflineClient',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{6D3C2FC9-3DD1-4102-87E3-39EF14ED18EA}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{6D3C2FC9-3DD1-4102-87E3-39EF14ED18EA}',
+                                                              name    => 'SGN: log off and logon as windows @user with @pwd',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{6E091141-F094-4A5D-8BDB-0C7822FD11A1}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{6E091141-F094-4A5D-8BDB-0C7822FD11A1}',
+                                                              name    => 'P1498 File Filter Heuristics - Prepare Suite 4_pqt',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{6E3448AD-279F-463F-B839-080F072E201B}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{6E3448AD-279F-463F-B839-080F072E201B}',
+                                                              name    => 'HOM: Prepare Environment for HOM tests',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{6EA1D3F7-5243-44FA-B533-8AD4E07B3944}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{6EA1D3F7-5243-44FA-B533-8AD4E07B3944}',
+                                                              name    => 'RSOP - Tests: check user and machine policies Part 2 (Loopback replay machine)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{6ECBFE91-5A9E-4632-AF1D-D85AABEB9F28}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{6ECBFE91-5A9E-4632-AF1D-D85AABEB9F28}',
+                                                              name    => 'DX Cancel Initial Encryption and Decrypt',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{70FDC4B3-61BB-4B10-97AA-00884095E40B}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{70FDC4B3-61BB-4B10-97AA-00884095E40B}',
+                                                              name    => 'verify that key ring got built up (using @domain @<os>user @<os>pwd)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{71BF806B-D741-4539-8136-074F2F9CD53D}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{71BF806B-D741-4539-8136-074F2F9CD53D}',
+                                                              name    => 'RegTest: P499b - Replace client configuration package with one named ClientConfig-managed-Bravo-to-Bravo-new',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{71D04326-F794-49DA-8A68-F7DA7034D9BF}" => {
+                                                              description
+                                                                      => ' ',
+                                                              id      => '{71D04326-F794-49DA-8A68-F7DA7034D9BF}',
+                                                              name    => 'Set SGN Trace Level to 0',
+                                                              precondition
+                                                                      => ' '
+                                                            },
+                "{72B40D07-4046-458E-BF32-95D0C25A9368}" => {
+                                                              description
+                                                                      => 'This Suite imports all DX policies encapsulate in a policy group.',
+                                                              id      => '{72B40D07-4046-458E-BF32-95D0C25A9368}',
+                                                              name    => 'DX Import DX Policies',
+                                                              precondition
+                                                                      => 'SGN is installed on the server and client(s).'
+                                                            },
+                "{73CC8C25-DE1F-4EB2-90D1-9365975FD436}" => {
+                                                              description
+                                                                      => "; parameter can be a combination of these values\r\n;\r\n;  0 = Logoff\r\n;  1".
+	" = Shutdown\r\n;  2 = Reboot\r\n;  4 = Force\r\n;  8 = Power down\r\n; 16= Force".
+	" if hung\r\n; 32= Standby\r\n; 64= Hibernate",
+                                                              id      => '{73CC8C25-DE1F-4EB2-90D1-9365975FD436}',
+                                                              name    => 'Logoff',
+                                                              precondition
+                                                                      => 'logout is critical if the system is not really ready (preparing desktop for the first time under XP...) so we sleep 1 minute !?'
+                                                            },
+                "{74186DC9-CD9F-4084-B791-00475F147353}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{74186DC9-CD9F-4084-B791-00475F147353}',
+                                                              name    => 'Vmware: Revert And Start Snapshot (Servers) Autologon',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{745B392B-B44E-4D6B-B5F2-C011E079AFDC}" => {
+                                                              description
+                                                                      => 'This suite waits for the Logon dialog which won\'t be shown on XP enter the local admin password and then waits for the Base Encryption viewer.',
+                                                              id      => '{745B392B-B44E-4D6B-B5F2-C011E079AFDC}',
+                                                              name    => 'Enter Logon Password and Base Encryption Viewer',
+                                                              precondition
+                                                                      => "PolicyEditor tests must be succeffully done.\r\nSGN Client and PolicyEdito".
+	"r config packages must be successfully installed.\r\nReboot must be trigge".
+	"red."
+                                                            },
+                "{75369E6D-23C9-4695-B21A-40AC5A47B4E5}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{75369E6D-23C9-4695-B21A-40AC5A47B4E5}',
+                                                              name    => 'CloudStorage: Assign all policies to workgroup node',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{76360E50-FD55-4795-0BE4-A56CC4BA174D}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{76360E50-FD55-4795-0BE4-A56CC4BA174D}',
+                                                              name    => 'Import new License file',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{777F649D-5826-4263-A897-EB54E32BF935}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{777F649D-5826-4263-A897-EB54E32BF935}',
+                                                              name    => 'SGN: log off and logon as windows @<os>user with @<os>pwd',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{78BD8DE9-FABF-4854-84B7-24F65980B954}" => {
+                                                              description
+                                                                      => "1) install all needed RSOP policies on the TA-Server machine\r\n2) import ".
+	"all installed RSOP policies into the SGN MC\r\n3) create the following AD ".
+	"structure:\r\n     utimaco.com -> RSOP -> Override -> Blockinheritance -> ".
+	"rsopComps\r\n                            ",
+                                                              id      => '{78BD8DE9-FABF-4854-84B7-24F65980B954}',
+                                                              name    => 'Prepare for RSOP Tests',
+                                                              precondition
+                                                                      => '1) Snapshot: <branchtag>Installation_complete_POA_Administrator_ready must be there'
+                                                            },
+                "{794F5409-E44B-4B73-B1A8-83C2198376DE}" => {
+                                                              description
+                                                                      => "This copies the CP msi files to the local msi folder:\r\n1. the SGNCPClien".
+	"t.msi\r\n2. SGNCPClient_x64.msi\r\nThen it copied this to the guests",
+                                                              id      => '{794F5409-E44B-4B73-B1A8-83C2198376DE}',
+                                                              name    => 'Antivirus CP Preparations',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{7A3C4942-7427-4842-BF2F-6CB73D976E24}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{7A3C4942-7427-4842-BF2F-6CB73D976E24}',
+                                                              name    => 'P664 FileShare - Activate File Share Policy (TestEnv)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{7A56ABDD-31DF-46A8-BB1A-BAB1E62DC38E}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{7A56ABDD-31DF-46A8-BB1A-BAB1E62DC38E}',
+                                                              name    => 'check if User is UMA owner on machine with UserParam as @USER@',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{7AF5C433-7ED0-41F7-AC24-36EBAEFF386A}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{7AF5C433-7ED0-41F7-AC24-36EBAEFF386A}',
+                                                              name    => 'P1498 Test Run Preparations_pqt',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{7C4A58BA-A403-4ECE-8299-18FB474E2283}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{7C4A58BA-A403-4ECE-8299-18FB474E2283}',
+                                                              name    => 'RegTest: P499b - Renew company cert via SGMCmdIntn (Bravo old -> Bravo new)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{7CCFD4F1-1FFA-4CCA-BC11-0C146F2FBB7F}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{7CCFD4F1-1FFA-4CCA-BC11-0C146F2FBB7F}',
+                                                              name    => 'P664 FileShare: T748 Short file name support (TestEnv) New',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{7E6D46AF-ED87-4BA4-9C11-0FD9C9D44F9D}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{7E6D46AF-ED87-4BA4-9C11-0FD9C9D44F9D}',
+                                                              name    => 'POA Login  and Windows login (with SSO) @<os>USER @<os>PWD @DOMAIN @POAOPTION @RETRYLOGIN',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{7EB9D99D-A461-48EA-A8D3-F93EA42C88AF}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{7EB9D99D-A461-48EA-A8D3-F93EA42C88AF}',
+                                                              name    => 'Installing SGN Silently VIX',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{7F16F0EC-8270-409E-AD63-0084B8C717B8}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{7F16F0EC-8270-409E-AD63-0084B8C717B8}',
+                                                              name    => 'P1498 File Filter Heuristics - Prepare Suite 1_pqt',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{7F40B432-1BD2-490C-9D50-90DF3E5C14C8}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{7F40B432-1BD2-490C-9D50-90DF3E5C14C8}',
+                                                              name    => 'DX Remove Test Files on USB Device',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{80039310-1C1D-4B49-A63B-D352494DA31C}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{80039310-1C1D-4B49-A63B-D352494DA31C}',
+                                                              name    => 'Copy and install SGN Standalone Client Configuration Package',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{80242264-FD46-4DC7-A22D-04BB0F3ADAAC}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{80242264-FD46-4DC7-A22D-04BB0F3ADAAC}',
+                                                              name    => 'Copy all AD manipulation scripts to Server',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{80B9D1A5-86D3-4AA2-A3B1-0B74590BF849}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{80B9D1A5-86D3-4AA2-A3B1-0B74590BF849}',
+                                                              name    => 'Uninstall SGN CP Client',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{823DC5D6-6CCA-4DE2-9437-875DD6D6517A}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{823DC5D6-6CCA-4DE2-9437-875DD6D6517A}',
+                                                              name    => 'DX MEK Test (Host) Part II',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{84262A89-3699-49C0-B96D-EFB9F315E5EA}" => {
+                                                              description
+                                                                      => 'disabled the zip test scripts.',
+                                                              id      => '{84262A89-3699-49C0-B96D-EFB9F315E5EA}',
+                                                              name    => 'Antivirus Tests',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{858D9B1E-31CA-4024-97A9-0E774AF7876E}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{858D9B1E-31CA-4024-97A9-0E774AF7876E}',
+                                                              name    => 'P1561.08 -- Create SHA-1 POA user cert (foxtrot)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{86552931-C748-4E76-8D1E-181FD95F3A71}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{86552931-C748-4E76-8D1E-181FD95F3A71}',
+                                                              name    => 'P1498 File Filter Heuristics - Prepare Suite 3_pqt',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{86B45903-CC53-48B3-9868-F8B32B913983}" => {
+                                                              description
+                                                                      => "Reboot is required after execution of this suite\r\n\r\n- Join domain on cli".
+	"ent machines will be done\r\n- Turn off screen on client machines will be ".
+	"done\r\n- all python scripts from the branch (inc-folder) will be copied t".
+	"o clients\r\n- scriptConfig which contain",
+                                                              id      => '{86B45903-CC53-48B3-9868-F8B32B913983}',
+                                                              name    => 'Prepare Clients for SGN Installation',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{88DF2D6A-A24C-4B14-831D-377AD7277A97}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{88DF2D6A-A24C-4B14-831D-377AD7277A97}',
+                                                              name    => 'RegTest - API (Certificates)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{89F007D1-BC07-49AD-979F-77CD50C05372}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{89F007D1-BC07-49AD-979F-77CD50C05372}',
+                                                              name    => 'Catch - P1725 Count Windows Users',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{8A06EB3F-4A59-465C-B346-BB5CDB633A9A}" => {
+                                                              description
+                                                                      => "1) install all needed CP policies on the TA-Server machine\r\n2) import al".
+	"l installed CP policies into the SGN MC\r\n3) create the following AD stru".
+	"cture:\r\n     utimaco.com -> CPUser\r\n4) move all <os>pwd users in AD from".
+	" Users to CPUser\r\n5) Prepare for RSOP -",
+                                                              id      => '{8A06EB3F-4A59-465C-B346-BB5CDB633A9A}',
+                                                              name    => 'Prepare Server/Clients for SGN CP Tests',
+                                                              precondition
+                                                                      => '1) Snapshot: <branchtag>Installation_complete_POA_Administrator_ready must be there'
+                                                            },
+                "{8D555916-BDB2-453B-9C30-0252E280A254}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{8D555916-BDB2-453B-9C30-0252E280A254}',
+                                                              name    => 'RegTest - API (UMA)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{9139FA1E-46CD-4D3A-8A38-4589E575C158}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{9139FA1E-46CD-4D3A-8A38-4589E575C158}',
+                                                              name    => 'FBE-Encryption/Decryption Drive F',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{92F14BF3-AE5A-411B-9FFF-0121E70DCDA7}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{92F14BF3-AE5A-411B-9FFF-0121E70DCDA7}',
+                                                              name    => 'VBE-Encryption/Decryption Drive E',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{92F82D79-71D7-4BED-958D-039E1CD517AC}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{92F82D79-71D7-4BED-958D-039E1CD517AC}',
+                                                              name    => 'Copy Eicar Fake Virus File',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{93E9418B-0DC8-43B5-8A65-603D205AB241}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{93E9418B-0DC8-43B5-8A65-603D205AB241}',
+                                                              name    => 'RSOP - Tests: check user and machine policies Part 3 (ignoreUser&Loopback replay machine)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{96308964-2298-4FA1-9111-688B5DDCB8AC}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{96308964-2298-4FA1-9111-688B5DDCB8AC}',
+                                                              name    => 'P1561 - RegTest: P499b - handle company cert renewal',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{98195506-2BAD-4513-97F9-029ABA80B336}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{98195506-2BAD-4513-97F9-029ABA80B336}',
+                                                              name    => 'Take Snapshot Installation_complete_POA_Administrator_ready on all OS\'s WBA',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{981EAC47-B207-49BD-A69E-138BD12C8911}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{981EAC47-B207-49BD-A69E-138BD12C8911}',
+                                                              name    => 'Wait until the OS HDD is idle',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{99839FCA-EC98-482F-B341-73C2B12040F0}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{99839FCA-EC98-482F-B341-73C2B12040F0}',
+                                                              name    => 'DX Install Only SGPortable Tests Preparations',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{9A62F805-333D-4E85-8E67-C17E49D46CF0}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{9A62F805-333D-4E85-8E67-C17E49D46CF0}',
+                                                              name    => 'DX Install Only SGPortable Test (Vmware) Part I',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{9AE245FE-4565-4FE2-B048-83BF70E42FEC}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{9AE245FE-4565-4FE2-B048-83BF70E42FEC}',
+                                                              name    => 'Prepare BackEnd For SGN Smoketest AUTOLOGON',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{9D29243B-5331-4221-8BCC-000B38845A7C}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{9D29243B-5331-4221-8BCC-000B38845A7C}',
+                                                              name    => 'MAC: A GetOpt Test',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{9D67AE54-FA6E-4BCD-B28A-D94494E9F6C9}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{9D67AE54-FA6E-4BCD-B28A-D94494E9F6C9}',
+                                                              name    => 'VMware: WaitForDesktop (domain admin) clients',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{9DA5DABA-007A-4691-8961-0094D32AD2DF}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{9DA5DABA-007A-4691-8961-0094D32AD2DF}',
+                                                              name    => 'Installs ONLY the SGN BackEnd (MC, Server and Client) - UNATTENTED',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{9ECBCB35-FAE1-4610-8D72-0E3056323B7A}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{9ECBCB35-FAE1-4610-8D72-0E3056323B7A}',
+                                                              name    => 'POA Login and Windows login (with SSO) @USER @PWD @DOMAIN @POAOPTION @RETRYLOGIN VIX',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{9F2B8170-6A4D-4853-88A9-D47E1042EDDD}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{9F2B8170-6A4D-4853-88A9-D47E1042EDDD}',
+                                                              name    => 'Catch - Add User to SGN UMA using the SGN API',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{9F3E5668-712D-4BCE-AE33-73A2657B5EF3}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{9F3E5668-712D-4BCE-AE33-73A2657B5EF3}',
+                                                              name    => 'Antivirus Kaspersky silent installation',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{9F7ADC3F-ADAB-4D3E-9458-DAF2F6DFE496}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{9F7ADC3F-ADAB-4D3E-9458-DAF2F6DFE496}',
+                                                              name    => 'Check FileCopy success',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{A0629838-559B-42BD-8D52-9655AF8837A3}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{A0629838-559B-42BD-8D52-9655AF8837A3}',
+                                                              name    => 'Wait until OS Hdd is idle ($IDLETIME = 5000) AUTOLOGON',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{A08D4FB5-6672-43D5-95FF-D323A4A74414}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{A08D4FB5-6672-43D5-95FF-D323A4A74414}',
+                                                              name    => 'RegTest: P499b - Copy and install SGN standalone client config named ClientConfig-standalone-Alpha-to-Bravo',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{A0FA26EA-7001-4B13-A642-70955B6E4CF7}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{A0FA26EA-7001-4B13-A642-70955B6E4CF7}',
+                                                              name    => 'Copy and install SGN standalone client config named ClientConfig-standalone-Alpha',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{A2C1FCDC-53F6-4D5C-902D-E1E8E5778B60}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{A2C1FCDC-53F6-4D5C-902D-E1E8E5778B60}',
+                                                              name    => "P664 FileShare - Client Test Run - Placeholder (<Desktop>\\Encrypt\303\237nrule".
+	") (TestEnv)",
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{A32DE3C6-5183-4F15-A4F9-78D1743728D6}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{A32DE3C6-5183-4F15-A4F9-78D1743728D6}',
+                                                              name    => 'Prepare Server/Clients for SGN Bitlocker (UEFI)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{A337AC5B-AFD8-4033-BD12-10BF2ADCBCDE}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{A337AC5B-AFD8-4033-BD12-10BF2ADCBCDE}',
+                                                              name    => 'P664 FileShare - Client Test Run -  NTFS (E:) (TestEnv) CHECK',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{A40E9BE7-48BC-4C45-94F0-B47EF0A71084}" => {
+                                                              description
+                                                                      => "This suite set policies needed for the DX tests.\r\nTests:\r\n     * creatin".
+	"g local keys (allowed)\r\n     * creating local keys (not allowed)",
+                                                              id      => '{A40E9BE7-48BC-4C45-94F0-B47EF0A71084}',
+                                                              name    => 'DX Local Key Creation Not Allowed',
+                                                              precondition
+                                                                      => 'SGN is installed on server and client(s)'
+                                                            },
+                "{A8EA1797-1042-4353-0842-2680BFAA3FBF}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{A8EA1797-1042-4353-0842-2680BFAA3FBF}',
+                                                              name    => 'Store SGN Offline Client recovery files',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{AA6D6A84-7209-4E93-837F-0276C440EB83}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{AA6D6A84-7209-4E93-837F-0276C440EB83}',
+                                                              name    => 'P1561.08 -- Create SHA-256 SO cert (charlie)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{AAB90022-67DC-4E99-8069-07ECF18C907C}" => {
+                                                              description
+                                                                      => "now the drive e: is   not accessable\r\n- move back User:Administrator to ".
+	"OU: users",
+                                                              id      => '{AAB90022-67DC-4E99-8069-07ECF18C907C}',
+                                                              name    => 'GPM OU Key with VBE part 2',
+                                                              precondition
+                                                                      => "1) Snapshot: <branchtag>Installation_complete_POA_Administrator_ready mu".
+	"st be there\r\n2) GPM Copy all Files for Groupmembership Tests\r\n3) GPM Cre".
+	"ate Group, AddUser, AD Synch and assign Group-key\r\n4) GPM OU Key with VB".
+	"E part 1\r\n5) SGN log off and on the sam"
+                                                            },
+                "{AB1C34EC-275E-4EDD-B096-418C9A1ECBFA}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{AB1C34EC-275E-4EDD-B096-418C9A1ECBFA}',
+                                                              name    => 'P499b - Manage CCOs in MC',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{AB6A7932-EE8F-4F76-086B-0CC4F6D53A6A}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{AB6A7932-EE8F-4F76-086B-0CC4F6D53A6A}',
+                                                              name    => 'Mac: Start Vmware',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{ABA2CCE1-CC08-4CAD-A045-D7D8D0B91B3C}" => {
+                                                              description
+                                                                      => 'This test suite copied the kaspersky msi file from the transfer to local msi folder.',
+                                                              id      => '{ABA2CCE1-CC08-4CAD-A045-D7D8D0B91B3C}',
+                                                              name    => 'Antivirus Kaspersky Preparations',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{AC12FCCE-501A-424F-9FAA-6F4FAFB73264}" => {
+                                                              description
+                                                                      => "Policy which diabled the access to unencrypted files is set.\r\nIn this su".
+	"ite  plain files on drive F:\\ is opened. If a System.UnauthorizedAccessE".
+	"xception is thrown the testcase finished with 0, otherwise the testcase ".
+	"failed with 1.",
+                                                              id      => '{AC12FCCE-501A-424F-9FAA-6F4FAFB73264}',
+                                                              name    => 'DX Access Unencrypted Files No',
+                                                              precondition
+                                                                      => 'SGN installed and properly configured.'
+                                                            },
+                "{AC29DCC9-39A6-400B-BEDE-79AB23E3BEE9}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{AC29DCC9-39A6-400B-BEDE-79AB23E3BEE9}',
+                                                              name    => 'CP check if CP is active part3',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{AD123C13-A00F-43BB-9620-8491E9F139D0}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{AD123C13-A00F-43BB-9620-8491E9F139D0}',
+                                                              name    => 'Copy and install Client Configuration Package',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{AD9599A8-4048-4F2C-AB81-181CD3F025F8}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{AD9599A8-4048-4F2C-AB81-181CD3F025F8}',
+                                                              name    => 'POA Login and Windows login (with SSO) @USER @PWD @DOMAIN @POAOPTION @RETRYLOGIN',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{AEA8AD09-9298-481A-87D2-C9DF40A31065}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{AEA8AD09-9298-481A-87D2-C9DF40A31065}',
+                                                              name    => 'Start Windows Server use Autologin New',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{AEF99B69-1CC4-4970-846D-0C2BB78DC97F}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{AEF99B69-1CC4-4970-846D-0C2BB78DC97F}',
+                                                              name    => 'Attach USB Device VIX',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{AF356770-A3D5-41ED-B863-0416891CFAF5}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{AF356770-A3D5-41ED-B863-0416891CFAF5}',
+                                                              name    => 'Antivirus: Check if antivirus is running',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{AFFA04B9-177D-4304-B250-D0EEEA24FB9F}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{AFFA04B9-177D-4304-B250-D0EEEA24FB9F}',
+                                                              name    => 'Cleanup Guests before starting a new Testrun VIX API',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{B06CC8A8-D607-4986-A78B-2FEB8AF51942}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{B06CC8A8-D607-4986-A78B-2FEB8AF51942}',
+                                                              name    => 'Copy the SGN CP msi package from $MSIPATH to $LOCALMSIPATH and Guest Vmware image',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{B10D063D-EEA7-4DB7-84F1-03E725779FBE}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{B10D063D-EEA7-4DB7-84F1-03E725779FBE}',
+                                                              name    => 'Enter Logon Password use SGN AuthService',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{B322544E-D84E-438F-8D32-0C5A8586CE52}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{B322544E-D84E-438F-8D32-0C5A8586CE52}',
+                                                              name    => 'Copy TAs to Server images',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{B35D1B5A-A3B9-480F-88CC-08B1E3503CCB}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{B35D1B5A-A3B9-480F-88CC-08B1E3503CCB}',
+                                                              name    => 'P1498 File Filter Heuristics - Run Suite 2',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{B3810CF7-2A5A-4442-A970-B6104CCEA6B9}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{B3810CF7-2A5A-4442-A970-B6104CCEA6B9}',
+                                                              name    => 'Disable Autologin on Clients (domain admin)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{B421AC18-B8DA-4D64-92C5-2DEBE4CAA1D4}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{B421AC18-B8DA-4D64-92C5-2DEBE4CAA1D4}',
+                                                              name    => 'P664 FileShare: T748 Short file name support (TestEnv)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{B687BD7B-0F90-4E86-08BF-08308F7D6624}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{B687BD7B-0F90-4E86-08BF-08308F7D6624}',
+                                                              name    => 'VBE-Encryption of the boot volume',
+                                                              precondition
+                                                                      => 'Smoketest must be done before to be able to revert to the correct snapshot'
+                                                            },
+                "{B68C7BBE-03F7-486B-A62C-6DEB9830F042}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{B68C7BBE-03F7-486B-A62C-6DEB9830F042}',
+                                                              name    => 'Catch - add users',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{B7BF91F7-112D-4529-8281-208AA3B7F2CC}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{B7BF91F7-112D-4529-8281-208AA3B7F2CC}',
+                                                              name    => 'P1498 File Filter Heuristics - Run Suite 4',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{B821800B-873F-44B4-0B2C-8FBB414B31CE}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{B821800B-873F-44B4-0B2C-8FBB414B31CE}',
+                                                              name    => 'RSOP - Tests: check user and machine policies Part 4 (ignoreUser)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{B9D67594-3720-4470-B9D1-8CD0C01C24A9}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{B9D67594-3720-4470-B9D1-8CD0C01C24A9}',
+                                                              name    => 'Disable Autologin',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{BA7F0D55-33D6-43EB-BA82-0BF18426FB29}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{BA7F0D55-33D6-43EB-BA82-0BF18426FB29}',
+                                                              name    => 'Create keys for CloudStorage',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{BABA5442-EFA5-4468-AEC8-057F1C8EE077}" => {
+                                                              description
+                                                                      => "FBE part:\r\n- Assign the FBE encryption policy to the root node (SGN MC)\r".
+	"\n- Select the FBE encryption key Container_Users\r\n- check if drive f: is".
+	" accessable\r\n- move User:Administrator from OU: users to OU: computer",
+                                                              id      => '{BABA5442-EFA5-4468-AEC8-057F1C8EE077}',
+                                                              name    => 'GPM Group Key with FBE part 1',
+                                                              precondition
+                                                                      => "1) Snapshot: <branchtag>Installation_complete_POA_Administrator_ready mu".
+	"st be there\r\n2) GPM Copy all Files for Groupmembership Tests\r\n3) GPM Cre".
+	"ate Group, AddUser, AD Synch and assign Group-key"
+                                                            },
+                "{BB099656-5AA1-456B-B240-23BC6521E1B9}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{BB099656-5AA1-456B-B240-23BC6521E1B9}',
+                                                              name    => 'POA Login and Windows login (with SSO) @USER @PWD @DOMAIN @POAOPTION @RETRYLOGIN without wait for Desktop',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{BD3C0295-75CE-4D10-80A5-CB5DE3497AE7}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{BD3C0295-75CE-4D10-80A5-CB5DE3497AE7}',
+                                                              name    => 'Take Snapshot Ready For Regression Test on all OS\'s',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{BD6075F9-7728-4ACA-0976-809E828BD0A1}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{BD6075F9-7728-4ACA-0976-809E828BD0A1}',
+                                                              name    => 'Check if a drive is accessible',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{BE6D79C8-166C-428E-895C-C7E3D0C766CB}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{BE6D79C8-166C-428E-895C-C7E3D0C766CB}',
+                                                              name    => 'Catch - Assign a policy',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{BFCA35B3-1B83-4CAF-8784-0581A82E97AD}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{BFCA35B3-1B83-4CAF-8784-0581A82E97AD}',
+                                                              name    => 'Vmware: Stop All Running Vmwares',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{C0AE11F6-7388-43A3-AEF8-0B33F01E4BE1}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{C0AE11F6-7388-43A3-AEF8-0B33F01E4BE1}',
+                                                              name    => 'Copy and install SGN Client with param: FIPS=1',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{C0D0F2DA-1F48-4CFC-96D2-9FDA222C46B8}" => {
+                                                              description
+                                                                      => 'This suite waits until the desktop is shown or a timeout exceeds.',
+                                                              id      => '{C0D0F2DA-1F48-4CFC-96D2-9FDA222C46B8}',
+                                                              name    => 'VMware: WaitForDesktop (localer admin) clients',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{C1570803-C2EE-4137-B2DA-6D51C0181990}" => {
+                                                              description
+                                                                      => 'The RecycleBin test cases are disabled on purpose. They are not working as expected because of operating system restrictions.',
+                                                              id      => '{C1570803-C2EE-4137-B2DA-6D51C0181990}',
+                                                              name    => 'P1498 File Filter Heuristics - Run Suite 1',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{C4B0863F-5DA7-45AC-0A57-054A659D7CFA}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{C4B0863F-5DA7-45AC-0A57-054A659D7CFA}',
+                                                              name    => 'Vmware: Remove Snapshot',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{C4B5C2AE-5A92-4C90-843C-EAC1C12C31C5}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{C4B5C2AE-5A92-4C90-843C-EAC1C12C31C5}',
+                                                              name    => 'RegTest - API (KeyManagement)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{C4CD9148-31CF-41EA-926B-0954F1192F73}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{C4CD9148-31CF-41EA-926B-0954F1192F73}',
+                                                              name    => 'CloudStorage - SGN: log off and logon as windows @user with @pwd use Auth-Service',
+                                                              precondition
+                                                                      => 'For this suite you have to enable auotlogon on your client computer'
+                                                            },
+                "{C65FF7AA-3252-40DC-AC21-09A2FCDAEDF4}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{C65FF7AA-3252-40DC-AC21-09A2FCDAEDF4}',
+                                                              name    => 'CP check if CP is active part1',
+                                                              precondition
+                                                                      => "1) Snapshot: <branchtag>Installation_complete_POA_Administrator_ready mu".
+	"st be there\r\n2) Prepare Server for SGN CP Tests\r\n3) Install SGN CP Clien".
+	"ts on Guest\r\n4) Add <OS>pwd user to POA on Guest"
+                                                            },
+                "{C752C032-AFF2-4F0A-B6F5-6651DFAA12A6}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{C752C032-AFF2-4F0A-B6F5-6651DFAA12A6}',
+                                                              name    => 'Catch - CreateFolder',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{C8A751FD-3CAD-471C-8AF2-076FBB93AACB}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{C8A751FD-3CAD-471C-8AF2-076FBB93AACB}',
+                                                              name    => 'P664 FileShare: Deactivate File Share policy (TestEnv)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{CA65427D-A83C-4EB6-A7FC-05483DE79646}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{CA65427D-A83C-4EB6-A7FC-05483DE79646}',
+                                                              name    => 'SGN: client-server synchronization',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{CAB08190-386F-40D6-86BC-0107975B7705}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{CAB08190-386F-40D6-86BC-0107975B7705}',
+                                                              name    => 'Prepare Clients for SGN Installation using AUTOLOGON -> REPLACED old one',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{CBDD0C3A-EC53-4377-A45A-000144EB8F9B}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{CBDD0C3A-EC53-4377-A45A-000144EB8F9B}',
+                                                              name    => 'Wait until OS Hdd is idle ($IDLETIME = 500)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{CCD39191-06DB-4DAE-ABF8-7FD952691F9A}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{CCD39191-06DB-4DAE-ABF8-7FD952691F9A}',
+                                                              name    => 'FBE-Encryption of Drive F',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{CE7FB586-3A77-4615-9EF7-068257D19BE0}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{CE7FB586-3A77-4615-9EF7-068257D19BE0}',
+                                                              name    => 'Smoketest - CreateADUser for new OS',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{CEC5C889-580E-4562-0937-18927EE68BFD}" => {
+                                                              description
+                                                                      => 'Suite copies some encrypted files. Because of that, I have to copy them first then install SGN.',
+                                                              id      => '{CEC5C889-580E-4562-0937-18927EE68BFD}',
+                                                              name    => 'DX Key Import Test',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{CF6E8698-B2E3-4098-922C-0F4F4F436BB2}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{CF6E8698-B2E3-4098-922C-0F4F4F436BB2}',
+                                                              name    => 'P664 FileShare: TRS13 - Encryption Status in Explorer (Overlay Icon) (TestEnv)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{D11D21E7-5103-4C0D-B3EC-FC4461852B61}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{D11D21E7-5103-4C0D-B3EC-FC4461852B61}',
+                                                              name    => 'POA Login and Windows login (with SSO) @USER @PWD @DOMAIN @POAOPTION @RETRYLOGIN w/o W8',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{D3F985B9-46A5-472D-9A3A-6A7BF4E471DD}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{D3F985B9-46A5-472D-9A3A-6A7BF4E471DD}',
+                                                              name    => 'Vmware: Copy Logs To Host',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{D4C3D0AD-64A4-4825-09B3-3B1988B53492}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{D4C3D0AD-64A4-4825-09B3-3B1988B53492}',
+                                                              name    => 'Set SGN Trace Level to 0 for Workstation machine',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{D57919CF-0B1F-4625-B3E0-5D5CE37BE17C}" => {
+                                                              description
+                                                                      => "; this function checks all files in the given LC cache path\r\n;\r\n#comment".
+	"s-start\r\n  example:\r\n\r\n  In this xml we want check if Andrea has the att".
+	"ribute 8 in the uma/machine settings\r\n\r\n  local cache path is \"\\Utimaco\\".
+	"SafeGuard Enterprise\\LocalCache\\uma\\mac",
+                                                              id      => '{D57919CF-0B1F-4625-B3E0-5D5CE37BE17C}',
+                                                              name    => 'Catch - Check LC',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{D79E9633-64BA-48BE-88A7-0991BEDC718A}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{D79E9633-64BA-48BE-88A7-0991BEDC718A}',
+                                                              name    => 'zip sgn trace, ta logs and store them on host in $LOGPATH',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{D8A01262-FBF3-4CA2-8F59-5F986B6ABA2F}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{D8A01262-FBF3-4CA2-8F59-5F986B6ABA2F}',
+                                                              name    => 'Enable Autologin on Clients (local admin)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{D9120474-2D8D-4ABF-868B-116618C273AD}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{D9120474-2D8D-4ABF-868B-116618C273AD}',
+                                                              name    => 'P664 FileShare: T846 - Drive Letter Mappings And UNC (TestEnv)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{DB41F411-A83B-49AB-A4EE-E4D89BD28B13}" => {
+                                                              description
+                                                                      => 'This test suite is intented to run after SGN Client and config installation with AUTOLOGON enabled. Due to the installation ogf the POA and rebooting twice a longer wait time is needed.',
+                                                              id      => '{DB41F411-A83B-49AB-A4EE-E4D89BD28B13}',
+                                                              name    => 'Reboot Clients VIX API Extra Large Time Out',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{DBA8FCC1-A550-4814-BA69-FCC35178CAA1}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{DBA8FCC1-A550-4814-BA69-FCC35178CAA1}',
+                                                              name    => 'Sleep (sometimes one or more sleep are inevitable)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{DC647EB6-1277-4F60-B5B3-003D695FC2C0}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{DC647EB6-1277-4F60-B5B3-003D695FC2C0}',
+                                                              name    => 'Copy Ffencryption tool (ddl and exe) to working directory - use local user testcases',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{DC91BAA4-345A-40CA-946C-3AF2D3471C9F}" => {
+                                                              description
+                                                                      => 'This suite creates local keys and checks the user key ring whether the keys are there or not.',
+                                                              id      => '{DC91BAA4-345A-40CA-946C-3AF2D3471C9F}',
+                                                              name    => 'DX Create Local Keys (Allowed)',
+                                                              precondition
+                                                                      => 'SGN is already installed on server and client(s)'
+                                                            },
+                "{DCBDE81F-6068-418E-BDA2-377D98B1FC47}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{DCBDE81F-6068-418E-BDA2-377D98B1FC47}',
+                                                              name    => 'POA Login and Windows login (with SSO) @USER @PWD @DOMAIN @POAOPTION @RETRYLOGIN w/o W8-{258437C4-52E0-400D-98F7-36F39E515079}',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{DDC59FFB-002D-4FA2-A016-9B653ADC6D46}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{DDC59FFB-002D-4FA2-A016-9B653ADC6D46}',
+                                                              name    => 'Antivirus Norton silent installation',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{DEADE4E5-EB98-4883-AC68-AB208186E594}" => {
+                                                              description
+                                                                      => 'Installes the SGNPolicyEditr.msi and goes through the Wizard.',
+                                                              id      => '{DEADE4E5-EB98-4883-AC68-AB208186E594}',
+                                                              name    => 'PolicyEditor And Offline Client: SGNPolicyEditor Installation and Configuration',
+                                                              precondition
+                                                                      => "TS: PolicyEditor and Offline Client: Revert To TA\r\nTS: PolicyEditor and ".
+	"Offline Client: Preparations\r\nTS: MS Windows:  Login as Local USER -> Do".
+	"es not exist yet."
+                                                            },
+                "{E03050D6-4C45-426A-8213-4C453D614EAE}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{E03050D6-4C45-426A-8213-4C453D614EAE}',
+                                                              name    => 'P664 FileShare - Import Policies (TestEnv) new',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{E04024DD-30D3-4AF5-96C0-FB82E1497B5D}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{E04024DD-30D3-4AF5-96C0-FB82E1497B5D}',
+                                                              name    => 'CloudStorage: Import all policies - MC',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{E2ABBEAC-D94C-450D-9893-FEB54D88BE19}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{E2ABBEAC-D94C-450D-9893-FEB54D88BE19}',
+                                                              name    => 'Vmware: Revert And Start Snapshot (Clients)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{E383944B-0512-4584-B911-6191313A3A41}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{E383944B-0512-4584-B911-6191313A3A41}',
+                                                              name    => 'Remove Assigned Polies (RemoveAssignedPolicyFromRoot.exe)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{E427F47A-CF31-4397-8E4E-7B1A59FAD024}" => {
+                                                              description
+                                                                      => "Create AD OU: Groupmember\r\nAdd Administrator to Groupmember\r\nCreate Key ".
+	"xGroupmember and assign this new generated key to OU: Groupmember",
+                                                              id      => '{E427F47A-CF31-4397-8E4E-7B1A59FAD024}',
+                                                              name    => 'GPM Create Group, AddUser,  AD-Synch and assign Group-key',
+                                                              precondition
+                                                                      => 'GPM Copy all Files for Groupmembership Tests'
+                                                            },
+                "{E4471069-EA89-4E32-A0C3-00FA97096099}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{E4471069-EA89-4E32-A0C3-00FA97096099}',
+                                                              name    => 'Copy testfiles to cloud',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{E47B3B1F-76BF-43C0-9687-E53932B42EEE}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{E47B3B1F-76BF-43C0-9687-E53932B42EEE}',
+                                                              name    => 'Reboot Clients VIX API and wait for Desktop',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{E4AF3570-D6DC-4FCB-A168-336D86B2F3B7}" => {
+                                                              description
+                                                                      => "Reboots an image. In order to do that it checks whether the VMware tools".
+	" are running, if not it started it with SC.exe. If RebootWithTools is se".
+	"t after reboot for the vmware tools is waiting until the comes active or".
+	" a timeout exceeds.\r\nUsage:\r\n    VixWra",
+                                                              id      => '{E4AF3570-D6DC-4FCB-A168-336D86B2F3B7}',
+                                                              name    => 'Reboot Clients VIX API',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{E4B4F28F-37BB-49CA-94BA-779D9D4AC430}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{E4B4F28F-37BB-49CA-94BA-779D9D4AC430}',
+                                                              name    => 'DX Detach USB drive',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{E5619DFF-F4F2-4221-BCEC-F99BE9E2B247}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{E5619DFF-F4F2-4221-BCEC-F99BE9E2B247}',
+                                                              name    => 'VBE-Decrpytion of Drive C:',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{E5DA8B10-95EB-4FAC-8D97-0FA981E19AE6}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{E5DA8B10-95EB-4FAC-8D97-0FA981E19AE6}',
+                                                              name    => 'SGN Client-DB synchronization',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{E638E7D0-E9DB-42CC-B966-9F339AC78A2B}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{E638E7D0-E9DB-42CC-B966-9F339AC78A2B}',
+                                                              name    => 'Antivirus CP Installation',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{E683D475-13ED-4A03-80F0-A9E136AD669C}" => {
+                                                              description
+                                                                      => 'Changed testsigning from psexec to VIX. Due to that I disabled 114 no need to copy the exe anymore',
+                                                              id      => '{E683D475-13ED-4A03-80F0-A9E136AD669C}',
+                                                              name    => 'Prepare Clients for SGN Installation using AUTOLOGON Antiviruses',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{E91C3D37-615D-4902-A56A-05B0E82E722D}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{E91C3D37-615D-4902-A56A-05B0E82E722D}',
+                                                              name    => 'check if User is UMA owner on machine with UserParam as @<OS>USER@',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{EAAA7B0D-2961-4B9B-AF5F-06558A1CBD1B}" => {
+                                                              description
+                                                                      => 'This replaced the old one. I use Waitfordesktop for waiting until the desktop is shown',
+                                                              id      => '{EAAA7B0D-2961-4B9B-AF5F-06558A1CBD1B}',
+                                                              name    => 'MS Windows: Domain Login as @USER with @pwd on @DOMAIN New',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{EAC4F0B3-E97F-4BE5-8337-D2CC7B73CA5F}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{EAC4F0B3-E97F-4BE5-8337-D2CC7B73CA5F}',
+                                                              name    => 'RegTest - API (Reports)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{EC5F97E6-B465-40DF-8D36-03A84D74F352}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{EC5F97E6-B465-40DF-8D36-03A84D74F352}',
+                                                              name    => 'Antivirus Sophos silent installation',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{ED0B9C42-EB07-40A4-972E-0746938B0F28}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{ED0B9C42-EB07-40A4-972E-0746938B0F28}',
+                                                              name    => 'P499b - Copy and install SGN Managed Client Configuration Package named ClientConfig-managed-Bravo',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{ED56D71C-4A3D-4383-ADE1-03CF7AA78511}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{ED56D71C-4A3D-4383-ADE1-03CF7AA78511}',
+                                                              name    => 'Domain Login with SGN as @USER with @PWD on @DOMAIN (SGN installed)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{ED97367D-C1F0-4515-B923-B18D29614E89}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{ED97367D-C1F0-4515-B923-B18D29614E89}',
+                                                              name    => 'Vmware: Revert And Start Snapshot (Servers)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{EE6B282D-D00B-4002-92F6-73F1AC209237}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{EE6B282D-D00B-4002-92F6-73F1AC209237}',
+                                                              name    => 'Antivirus Import and Assign Policies',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{EEC28531-B6AA-41D0-AFBA-3051FCAD6E19}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{EEC28531-B6AA-41D0-AFBA-3051FCAD6E19}',
+                                                              name    => 'Antivirus Forefront silent installation',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{EFDF5FF1-B6EA-4767-A286-1F61CE919862}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{EFDF5FF1-B6EA-4767-A286-1F61CE919862}',
+                                                              name    => 'Join Computer from Workgoup 2 Domain',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{F0C8DCB9-D859-45D4-82D9-04CAB97D56FF}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{F0C8DCB9-D859-45D4-82D9-04CAB97D56FF}',
+                                                              name    => 'Install SGN CP Client on Guests',
+                                                              precondition
+                                                                      => '1) Snapshot: <branchtag>Installation_complete_POA_Administrator_ready must be there'
+                                                            },
+                "{F0FE74D6-F5EA-4CB7-A428-76A0657FC070}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{F0FE74D6-F5EA-4CB7-A428-76A0657FC070}',
+                                                              name    => 'SGN POA: make a c/r for $DUSER$',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{F29B0F57-799E-48EB-B98D-EB458123EA57}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{F29B0F57-799E-48EB-B98D-EB458123EA57}',
+                                                              name    => 'Check VMwareTools and SGN Master- Set run parameter for timeout',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{F2D692EC-299B-4309-B331-047FAD52B031}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{F2D692EC-299B-4309-B331-047FAD52B031}',
+                                                              name    => 'SGN: client-server synchronization within a given timespan for Workgroup machine',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{F596FFA0-131C-4397-89F5-02FD199CC961}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{F596FFA0-131C-4397-89F5-02FD199CC961}',
+                                                              name    => 'P664 FileShare - Client Test Run - Windows share (\\\\TA-SERVER\\dfs) (TestEnv)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{F6D453CD-58B7-4C66-B1E6-0BA32FBD6A7B}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{F6D453CD-58B7-4C66-B1E6-0BA32FBD6A7B}',
+                                                              name    => 'Copy and install SGN Client',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{F821A818-54A5-45CB-96A7-092194FFA119}" => {
+                                                              description
+                                                                      => 'an empty suite to be used as a separator in complex test runs',
+                                                              id      => '{F821A818-54A5-45CB-96A7-092194FFA119}',
+                                                              name    => '------------------------------------------------------------------------------------------------------------',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{F9439F20-5598-4594-B6F4-69BF36AB3192}" => {
+                                                              description
+                                                                      => 'use TS: Vmware: Revert And Start Snapshot instead',
+                                                              id      => '{F9439F20-5598-4594-B6F4-69BF36AB3192}',
+                                                              name    => 'deprecated: Revert VMWare images to Snapshot: Ready For Regression Test',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{F9FC3B73-DE7D-43B4-BB72-D630633DD720}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{F9FC3B73-DE7D-43B4-BB72-D630633DD720}',
+                                                              name    => 'Copy and install SGN Client (Bitlocker)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{FAA2FEEC-C0A5-4D75-BEB8-FA734E4A6216}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{FAA2FEEC-C0A5-4D75-BEB8-FA734E4A6216}',
+                                                              name    => 'P1561.08 -- set SHA-1',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{FAEC1D59-7B3A-4802-9A44-003C0C55FB94}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{FAEC1D59-7B3A-4802-9A44-003C0C55FB94}',
+                                                              name    => 'VBE-Decryption of the boot volume',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{FBE8C9DB-E27B-41DE-80BB-A5E2DEBD9076}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{FBE8C9DB-E27B-41DE-80BB-A5E2DEBD9076}',
+                                                              name    => 'Copy and install SGN Managed Client Configuration Package + Offline Client .bak dialog check',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{FC242E52-B1C8-436E-80BC-51A22BACB7BD}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{FC242E52-B1C8-436E-80BC-51A22BACB7BD}',
+                                                              name    => 'VBE-Encryption of Drive C part1 (UEFI)',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{FCB40606-1599-46F9-8028-5CCE17581257}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{FCB40606-1599-46F9-8028-5CCE17581257}',
+                                                              name    => 'P664 FileShare - Activate File Share Policy (TestEnv) NEW',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{FD453E66-37D9-4BFC-AFE0-05DCC0DFA370}" => {
+                                                              description
+                                                                      => "VBE part:\r\n- Assign the VBE encryption policy to the root node (SGN MC)\r".
+	"\n- Select the VBE encryption key Container_Users\r\n- check if drive e: is".
+	" accessable\r\n- move User:Administrator from OU: users to OU: computer",
+                                                              id      => '{FD453E66-37D9-4BFC-AFE0-05DCC0DFA370}',
+                                                              name    => 'GPM OU Key with VBE part 1',
+                                                              precondition
+                                                                      => "1) Snapshot: <branchtag>Installation_complete_POA_Administrator_ready mu".
+	"st be there\r\n2) GPM Copy all Files for Groupmembership Tests\r\n3) GPM Cre".
+	"ate Group, AddUser, AD Synch and assign Group-key"
+                                                            },
+                "{FD82909A-D094-448D-8C59-5691AF1BA632}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{FD82909A-D094-448D-8C59-5691AF1BA632}',
+                                                              name    => 'Restart Management Center and login',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{FD861740-D264-4E96-8EA0-6F30B3428C25}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{FD861740-D264-4E96-8EA0-6F30B3428C25}',
+                                                              name    => 'Check VBE Drive encryption status',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{FE6FF237-C5D5-4138-AC9B-888683C64B54}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{FE6FF237-C5D5-4138-AC9B-888683C64B54}',
+                                                              name    => 'DX Only Installation',
+                                                              precondition
+                                                                      => 0
+                                                            },
+                "{FFDBA265-F361-4F97-8E7D-C2E97A3CA0CA}" => {
+                                                              description
+                                                                      => 0,
+                                                              id      => '{FFDBA265-F361-4F97-8E7D-C2E97A3CA0CA}',
+                                                              name    => 'Check all files encryption state in cloud (recursiv)',
+                                                              precondition
+                                                                      => 0
+                                                            }
+              };
