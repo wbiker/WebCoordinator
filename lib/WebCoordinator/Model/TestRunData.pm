@@ -4,6 +4,7 @@ use namespace::autoclean;
 use Data::Dump::Streamer;
 use JSON;
 use Git::Wrapper;
+use File::Spec;
 use Data::Dumper;
 use Digest::MD5 qw(md5_hex);
 
@@ -19,12 +20,14 @@ This Catalyst Model capsulate the test run data. It loads the data from a file a
 
 =cut
 
-has 'testrun_file' => (is => 'ro', isa => 'Str', default => './root/files/master/testrun.db');
-has 'testsuite_file' => (is => 'ro', isa => 'Str', default => './root/files/master/testsuite.db');
-has 'testcase_file' => (is => 'ro', isa => 'Str', default => './root/files/master/testcase.db');
+has 'branch_dir' => (is => 'ro', isa => 'Str', default => 'root/files');
+has 'testrun_file' => (is => 'ro', isa => 'Str', default => 'testrun.db');
+has 'testsuite_file' => (is => 'ro', isa => 'Str', default => 'testsuite.db');
+has 'testcase_file' => (is => 'ro', isa => 'Str', default => 'testcase.db');
 has 'testruns' => (is => 'ro', isa => 'HashRef');
 has 'testsuites' => (is => 'ro', isa => 'HashRef');
 has 'testcases' => (is => 'ro', isa => 'HashRef');
+has 'branches' => (is =>'ro', isa => 'ArrayRef');
 
 sub BUILD {
     my $self = shift;
@@ -88,7 +91,7 @@ sub _load_data_files {
 	
 	for my $file (qw(testrun testsuite testcase)) {
 		my $file_name = $file."_file";
-		my $file_path = $self->{$file_name};
+		my $file_path = File::Spec->catfile($self->{branch_dir}, 'master',  $self->{$file_name});
 	    if(-e $file_path) {
 	        my $tr = do $file_path;
         	die "couldn't parse $file_path: $@" if $@;
@@ -100,6 +103,20 @@ sub _load_data_files {
 	    else {
         	die "Could not found $file_path";
     	}
+	}
+}
+
+sub _save_data_files {
+	my $self = shift;
+
+	for my $file (qw(testrun testsuite testcase)) {
+		my $file_path = File::Spec->catfile($self->{branch_dir}, 'master', $file."_file");
+
+		open(my $fh, ">", $file_path);
+		my $data = $file."s";
+		my $data_stringified = Dumper $self->{$data};
+		print $fh Dumper $data_stringified;
+		close($fh);
 	}
 }
 
@@ -118,6 +135,7 @@ sub add_new_testrun {
 
     $self->{testruns}->{$id}->{name} = $c->req->parameters->{name};
     $self->{testruns}->{$id}->{$id} = $id;
+	$self->_save_data_files;
 }
 
 sub add_new_testsuite {
@@ -128,6 +146,7 @@ sub add_new_testsuite {
     $self->{testsuites}->{$id}->{name} = $c->req->parameters->{name};
     $self->{testsuites}->{$id}->{description} = $c->req->parameters->{description};
     $self->{testsuites}->{$id}->{id} = $id;
+	$self->_save_data_files;
 }
 
 sub add_new_testcase {
@@ -138,24 +157,28 @@ sub add_new_testcase {
     $self->{testcases}->{$id}->{name} = $c->req->parameters->{name};
     $self->{testcases}->{$id}->{description} = $c->req->parameters->{description};
     $self->{testcases}->{$id}->{id} = $id;
+	$self->_save_data_files;
 }
 
 sub delete_testrun {
     my ($self, $c, $testrun_id) = @_;
 
     delete $self->{testruns}->{$testrun_id};
+	$self->_save_data_files;
 }
 
 sub delete_testsuite {
     my ($self, $c, $testsuite_id) = @_;
 
     delete $self->{testsuites}->{$testsuite_id};
+	$self->_save_data_files;
 }
 
 sub delete_testcase {
     my ($self, $c, $testcase_id) = @_;
 
     delete $self->{testcases}->{$testcase_id};
+	$self->_save_data_files;
 }
 
 =head1 AUTHOR
