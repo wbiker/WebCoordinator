@@ -1,0 +1,21 @@
+[% META TITLE="Add Test Suites" %]
+
+<p>
+Test Run Name: [% testrun.name %]<br>
+</p>
+<form name="add" action="addtestsuites" methode="POST">
+    <table>
+        <tr>
+            <th></th><th>Name</th><th>Category</th><th>Description</th>
+        </tr>
+        [% FOREACH tsid IN testsuites.keys %]
+            <tr>
+                <td><input type="checkbox" name="testsuites" value="[% tsid %]"></td>
+                <td>[% testsuites.$tsid.name %]</td>
+                <td>[% testsuites.$tsid.category %]</td>
+                <td>[% testsuites.$tsid.description %]</td>
+            </tr>
+        [% END %]
+    </table>
+    <input type="submit" value="Submit">
+</form>
