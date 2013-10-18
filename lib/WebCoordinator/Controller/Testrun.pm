@@ -33,7 +33,7 @@ sub testrun :Path('/testrun') :Args(1) {
 
     $c->stash(testrun => $testrun);
     $c->stash(testsuites => $test_suites);
-    $c->stash(debug => Dumper $test_suites);
+    $c->stash(debug => Dumper $testrun);
 }
 
 sub list :Path('/testrun/list') :Args(0) {
@@ -72,6 +72,32 @@ sub delete :Path('delete') :Args(1) {
     $c->flash(message => 'Test run removed');
     $c->res->redirect($c->uri_for('list'));
     $c->detach;
+}
+
+sub removetestsuite :Path('removetestsuite') :Args(2) {
+    my ($self, $c, $tr_id, $ts_id) = @_;
+
+    $c->log->debug("Remove ts '$ts_id' from tr '$tr_id'");
+    $c->model('TestRunData')->remove_ts_from_tr($c, $tr_id, $ts_id);
+    $c->res->redirect($c->uri_for('/testrun', $tr_id));
+    $c->detach;
+}
+
+sub addtestsuites :Path('addtestsuites') :Args(1) {
+    my ($self, $c, $tr_id) = @_;
+
+    my $testsuites = $c->req->parameters->{testsuites};
+
+    if($testsuites) {
+        $c->model('TestRunData')->save_testsuites_in_tr($c, $tr_id, $testsuites);
+        $c->res->redirect($c->uri_for($tr_id));
+        $c->detach;
+    }
+    else {
+        my $ts_all = $c->model('TestRunData')->get_all_testsuites($c);
+        $c->stash(testsuites => $ts_all);
+        $c->stash(debug => Dumper $ts_all);
+    }
 }
 
 =head1 AUTHOR

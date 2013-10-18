@@ -1,5 +1,6 @@
 [% META title="Testruns" %]
 
+<a href="[% c.uri_for('addtestsuites', testrun.id) %]">Add Test Suites</a>
 <p>
 Name: [% testrun.name %]<br>
 </p>
@@ -9,5 +10,6 @@ Name: <a href="[% c.uri_for('/testsuite', ts.id) %]">[% ts.name %]</a><br>
 ID: [% ts.id %]<br>
 Precondition: [% ts.precondition %]<br>
 Description: [% ts.description %]<br>
+<a href="[% c.uri_for('removetestsuite', testrun.id, ts.id) %]">Delete From Test Run</a>
 </p>
 [% END %]
