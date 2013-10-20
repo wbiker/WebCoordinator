@@ -72,7 +72,7 @@ sub addtestcases :Path('addtestcases') :Args(1) {
         my $testcases = $c->req->parameters;
         $c->log->debug("testcases got: ".Dumper $testcases);
         $c->model('TestRunData')->add_testcases_to_ts($c, $c->stash->{ts_id}, $testcases);
-        $c->res->redirect('/testsuite', $c->stash->{ts_id});
+        $c->res->redirect($c->uri_for($c->stash->{ts_id}));
         $c->detach;
     }
     else {
