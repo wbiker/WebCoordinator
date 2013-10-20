@@ -82,6 +82,15 @@ sub addtestcases :Path('addtestcases') :Args(1) {
     }
 }
 
+sub removetestcase :Path('removetestcase') :Args(2) {
+    my ($self, $c, $ts_id, $tc_id) = @_;
+    
+    $c->log->debug("Remove TC '$tc_id' from TS '$ts_id'");
+    my $ts = $c->model('TestRunData')->remove_tc_from_ts($c, $ts_id, $tc_id);
+    $c->res->redirect($c->uri_for($ts_id));
+    $c->detach;
+}
+
 =head1 AUTHOR
 
 wolf

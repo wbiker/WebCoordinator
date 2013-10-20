@@ -13,5 +13,6 @@ Name: <a href="[% c.uri_for('/testcase', tc) %]">[% testcases.$tc.name %]</a><br
 ID: [% tc %]<br>
 Precondition: [% testcases.$tc.precondition %]<br>
 Description: [% testcases.$tc.description %]<br>
+<a href="[% c.uri_for('removetestcase', testsuite.id, tc) %]">Delete Test Case</a>
 </p>
 [% END %]

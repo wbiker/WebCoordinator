@@ -109,6 +109,14 @@ sub remove_ts_from_tr {
     $self->_save_data_files($c, "removed TS '$ts_id' from tr '$tr_id'");
 }
 
+sub remove_tc_from_ts {
+    my ($self, $c, $ts_id, $tc_id) = @_;
+
+    my $branch = _get_branch($c);
+    delete $self->{$branch}->{testsuites}->{$ts_id}->{tcids}->{$tc_id};
+    $self->_save_data_files($c, "removed TC '$tc_id' from ts '$ts_id'");
+}
+
 sub _load_data_files {
 	my $self = shift;
 	
