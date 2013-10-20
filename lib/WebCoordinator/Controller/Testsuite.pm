@@ -27,8 +27,10 @@ sub testsuite :Path('/testsuite') :Args(1) {
     my ( $self, $c, $testsuite_id ) = @_;
 
     my $testsuite = $c->model('TestRunData')->get_test_suite($c, $testsuite_id);
-
+    my $testcases = $c->model('TestRunData')->get_test_cases($c, $testsuite->{tcids});
     $c->stash(testsuite => $testsuite);
+    $c->stash(testcases => $testcases);
+    $c->stash(debug => Dumper $testcases);
 }
 
 sub list :Path('/testsuite/list') :Args(0) {
@@ -61,6 +63,23 @@ sub delete :Path('delete') :Args(1) {
     $c->res->redirect($c->uri_for('list'));
     $c->detach;
     $c->flash(message => 'Test suite deleted');
+}
+
+sub addtestcases :Path('addtestcases') :Args(1) {
+    my ($self, $c, $ts_id) = @_;
+
+    if($ts_id && $ts_id eq "addtestcases") {
+        my $testcases = $c->req->parameters;
+        $c->log->debug("testcases got: ".Dumper $testcases);
+        $c->model('TestRunData')->add_testcases_to_ts($c, $c->stash->{ts_id}, $testcases);
+        $c->res->redirect('/testsuite', $c->stash->{ts_id});
+        $c->detach;
+    }
+    else {
+        $c->stash(testsuite => $c->model('TestRunData')->get_test_suite($c, $ts_id));
+        $c->stash(testcases => $c->model('TestRunData')->get_all_testcases($c));
+        $c->flash(ts_id => $ts_id);
+    }
 }
 
 =head1 AUTHOR

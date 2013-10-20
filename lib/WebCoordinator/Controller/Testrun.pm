@@ -88,6 +88,7 @@ sub addtestsuites :Path('addtestsuites') :Args(1) {
 
     if($tr_id eq "addtestsuites") {
         my $testsuites = $c->req->parameters->{testsuites};
+        $c->log->debug("testsuites are: ".Dump($testsuites)->Out());
         $c->model('TestRunData')->add_testsuites_to_tr($c, $c->stash->{tr_id}, $testsuites);
         $c->res->redirect($c->uri_for($c->stash->{tr_id}));
         $c->detach;

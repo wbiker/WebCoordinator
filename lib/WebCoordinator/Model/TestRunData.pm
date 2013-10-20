@@ -73,6 +73,20 @@ sub get_test_suites {
     return $ts;
 }
 
+sub get_test_cases {
+    my $self = shift;
+    my $c = shift;
+    my $testcase_ids = shift;
+
+    my $tc = {};
+    my $branch = _get_branch($c);
+    for my $id (keys %{$testcase_ids}) {
+        $tc->{$id} = $self->{$branch}->{testcases}->{$id};
+    }
+
+    return $tc;
+}
+
 sub get_all_testsuites {
     my ($self, $c) = @_;
 
@@ -274,13 +288,45 @@ sub add_testsuites_to_tr {
         $tr->{tsids} = {};
     }
 
-    for my $ts (@{$testsuites}) {
-        $c->log->debug("add $ts to tr '$tr_id'");
-        $tr->{tsids}->{$ts} = 1;
+    if(ref $testsuites eq "ARRAY") {
+        for my $ts (@{$testsuites}) {
+            $c->log->debug("add $ts to tr '$tr_id'");
+            $tr->{tsids}->{$ts} = 1;
+        }
+    }
+    else {
+        $tr->{tsids}->{$testsuites} = 1;
     }
     
-    $self->{$branch}->{testruns}->{$tr_id} = $tr;
 	$self->_save_data_files($c, "TSs saved to TR");
+}
+
+sub add_testcases_to_ts {
+    my ($self, $c, $ts_id, $testcases) = @_;
+    
+    my $branch = _get_branch($c);
+    my $ts = $self->{$branch}->{testsuites}->{$ts_id};
+
+    if(!exists $ts->{tcids}) {
+        $ts->{tcids} = {};
+    }
+
+    if(ref $testcases eq "HASH") {
+        $testcases = $testcases->{testcases};
+    }
+
+    if(ref $testcases eq "ARRAY") {
+        for my $tc (@{$testcases}) {
+            $c->log->debug("add $tc to ts '$ts_id'");
+            $ts->{tcids}->{$tc} = 1;
+        }
+    }
+    else {
+        $c->log->debug("add $testcases to ts '$ts_id'");
+        $ts->{tcids}->{$testcases} = 1;
+    }
+    
+	$self->_save_data_files($c, "TCs saved to TS");
 }
 
 sub _get_branch {

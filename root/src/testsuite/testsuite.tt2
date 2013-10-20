@@ -5,12 +5,13 @@ Name: [% testsuite.name %]<br>
 ID: [% testsuite.id %]<br>
 Precondition: [% testsuite.precondition %]<br>
 Description: [% testsuite.description %]<br>
+<a href="[% c.uri_for('addtestcases', testsuite.id) %]">Add Test Cases</a>
 </p>
-[% FOREACH tc IN testsuite.testcases %]
+[% FOREACH tc IN testcases.keys %]
 <p>
-Name: <a href="[% c.uri_for('/testcase', tc.id) %]">[% tc.name %]</a><br>
-ID: [% tc.id %]<br>
-Precondition: [% tc.precondition %]<br>
-Description: [% tc.description %]<br>
+Name: <a href="[% c.uri_for('/testcase', tc) %]">[% testcases.$tc.name %]</a><br>
+ID: [% tc %]<br>
+Precondition: [% testcases.$tc.precondition %]<br>
+Description: [% testcases.$tc.description %]<br>
 </p>
 [% END %]
