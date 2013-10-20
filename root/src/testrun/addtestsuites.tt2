@@ -4,6 +4,7 @@
 Test Run Name: [% testrun.name %]<br>
 </p>
 <form name="add" action="addtestsuites" methode="POST">
+    <input type="submit" value="Submit">
     <table>
         <tr>
             <th></th><th>Name</th><th>Category</th><th>Description</th>

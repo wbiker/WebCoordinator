@@ -63,15 +63,13 @@ sub get_test_suites {
     my $c = shift;
     my $testsuite_ids = shift;
 
-    my $ts = [];
+    my $ts = {}; 
 
     my $branch = _get_branch($c);
-    for my $ts_id (@{$testsuite_ids}) {
-        push($ts, $self->{$branch}->{testsuites}->{$ts_id});
+    for my $ts_id (keys %{$testsuite_ids}) {
+        $ts->{$ts_id} = $self->{$branch}->{testsuites}->{$ts_id};
     }
 
-	my $tsref = $self->{$branch}->{testsuites};
-	$c->log->debug(\$tsref);
     return $ts;
 }
 
@@ -93,10 +91,8 @@ sub remove_ts_from_tr {
     my ($self, $c, $tr_id, $ts_id) = @_;
 
     my $branch = _get_branch($c);
-    my $tsids = $self->{$branch}->{testruns}->{$tr_id}->{tsids};
-
-    my @newarray = grep { $_ ne $ts_id } @{$tsids};
-    $self->{$branch}->{testruns}->{$tr_id}->{tsids} = [@newarray];
+    delete $self->{$branch}->{testruns}->{$tr_id}->{tsids}->{$ts_id};
+    $self->_save_data_files($c, "removed TS '$ts_id' from tr '$tr_id'");
 }
 
 sub _load_data_files {
@@ -118,6 +114,39 @@ sub _load_data_files {
     	        die "Could not do $file_path: $!" unless defined $tr;
 	            die "Could not run $file_name" unless $tr;
 			    my $variable = $file."s";
+        	    $self->{$branch}->{$variable} = $tr;
+    	    }
+	        else {
+        	    die "Could not found $file_path";
+    	    }
+	    }
+    }
+}
+
+sub _reload_data_files {
+	my $self = shift;
+    my $c = shift;
+	
+    my $git = Git::Wrapper->new($self->{branch_dir});
+    my @branches = $git->branch;
+
+    for my $branch (@branches) {
+        $branch =~ s/\A\*//;
+        $branch =~ s/\A\s+//;
+
+        $c->log->debug("Load files from branch '$branch'");
+	    for my $file (qw(testrun testsuite testcase)) {
+		    my $file_name = $file."_file";
+		    my $file_path = File::Spec->catfile($self->{branch_dir}, $self->{$file_name});
+            $c->log->debug("File path: '$file_path'");
+	        if(-e $file_path) {
+	            my $tr = do $file_path;
+        	    die "couldn't parse $file_path: $@" if $@;
+    	        die "Could not do $file_path: $!" unless defined $tr;
+	            die "Could not run $file_name" unless $tr;
+			    my $variable = $file."s";
+                $c->log->debug("Store data in hash '$variable'");
+                $c->log->debug("hash data '$tr'");
         	    $self->{$branch}->{$variable} = $tr;
     	    }
 	        else {
@@ -153,8 +182,15 @@ sub _save_data_files {
 		close($fh);
 	}
 
+    my $statuses = $git->status;
+
+    if($statuses->is_dirty) {
     $c->log->debug("Commit branch '$branch' with reason '$commit_reasons'");
     $git->commit({ message => $commit_reasons, all => 1 });
+    }
+    else {
+        $c->log->debug("Don't commit, repository '$branch' has not any uncommited changes");
+    }
 }
 
 sub get_test_suite {
@@ -228,22 +264,23 @@ sub delete_testcase {
 	$self->_save_data_files($c, "Delete TC with id '$testcase_id'");;
 }
 
-sub save_testsuites_in_tr {
+sub add_testsuites_to_tr {
     my ($self, $c, $tr_id, $testsuites) = @_;
     
     my $branch = _get_branch($c);
     my $tr = $self->{$branch}->{testruns}->{$tr_id};
 
     if(!exists $tr->{tsids}) {
-        $tr->{tsids} = [];
+        $tr->{tsids} = {};
     }
 
     for my $ts (@{$testsuites}) {
-        $c->log->debug("add $ts to tr");
-        push($tr->{tsids}, $ts);
+        $c->log->debug("add $ts to tr '$tr_id'");
+        $tr->{tsids}->{$ts} = 1;
     }
     
     $self->{$branch}->{testruns}->{$tr_id} = $tr;
+	$self->_save_data_files($c, "TSs saved to TR");
 }
 
 sub _get_branch {

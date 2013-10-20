@@ -1,7 +1,7 @@
 package WebCoordinator::Controller::Testrun;
 use Moose;
 use namespace::autoclean;
-use Data::Dumper;
+use Data::Dump::Streamer;
 use WebCoordinator::Form::AddTestrun;
 
 BEGIN { extends 'Catalyst::Controller'; }
@@ -26,19 +26,20 @@ Catalyst Controller.
 sub testrun :Path('/testrun') :Args(1) {
     my ( $self, $c, $testrun_id ) = @_;
     
-    $c->log->info("testrun controller invoked");
+    $c->log->info("testrun controller invoked. tr id '$testrun_id'");
 
     my $testrun = $c->model('TestRunData')->get_test_run($c, $testrun_id);
     my $test_suites = $c->model('TestRunData')->get_test_suites($c, $testrun->{tsids});
 
     $c->stash(testrun => $testrun);
     $c->stash(testsuites => $test_suites);
-    $c->stash(debug => Dumper $testrun);
+    my $dump = Dump($test_suites)->Out();
+    $c->stash(debug => $dump);
 }
 
 sub list :Path('/testrun/list') :Args(0) {
     my ($self, $c) = @_;
-    $c->log->debug("testrun path called");
+    $c->log->debug("/testrun/list path called");
     # Hello World
     my $tr_data = $c->model('TestRunData');
 
@@ -46,7 +47,6 @@ sub list :Path('/testrun/list') :Args(0) {
 #    my $tref = eval { $tt };
  #   if($@) { $c->log->error($@); }
     $c->stash(testruns => $tt);
-    $c->stash(debug => Dumper $c->session);
 }
 
 sub add :Path('add') :Args(0) {
@@ -86,17 +86,18 @@ sub removetestsuite :Path('removetestsuite') :Args(2) {
 sub addtestsuites :Path('addtestsuites') :Args(1) {
     my ($self, $c, $tr_id) = @_;
 
-    my $testsuites = $c->req->parameters->{testsuites};
-
-    if($testsuites) {
-        $c->model('TestRunData')->save_testsuites_in_tr($c, $tr_id, $testsuites);
-        $c->res->redirect($c->uri_for($tr_id));
+    if($tr_id eq "addtestsuites") {
+        my $testsuites = $c->req->parameters->{testsuites};
+        $c->model('TestRunData')->add_testsuites_to_tr($c, $c->stash->{tr_id}, $testsuites);
+        $c->res->redirect($c->uri_for($c->stash->{tr_id}));
         $c->detach;
     }
     else {
+        $c->log->debug("/testrun/addtestsuites invoked. tr ID '$tr_id'");
+
         my $ts_all = $c->model('TestRunData')->get_all_testsuites($c);
         $c->stash(testsuites => $ts_all);
-        $c->stash(debug => Dumper $ts_all);
+        $c->flash(tr_id => $tr_id);
     }
 }
 

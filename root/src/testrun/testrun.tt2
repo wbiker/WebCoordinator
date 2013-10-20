@@ -4,12 +4,12 @@
 <p>
 Name: [% testrun.name %]<br>
 </p>
-[% FOREACH ts IN testsuites %]
+[% FOREACH key IN testsuites.keys %]
 <p>
-Name: <a href="[% c.uri_for('/testsuite', ts.id) %]">[% ts.name %]</a><br>
-ID: [% ts.id %]<br>
-Precondition: [% ts.precondition %]<br>
-Description: [% ts.description %]<br>
-<a href="[% c.uri_for('removetestsuite', testrun.id, ts.id) %]">Delete From Test Run</a>
+Name: <a href="[% c.uri_for('/testsuite', testsuites.$key.id) %]">[% testsuites.$key.name %]</a><br>
+ID: [% testsuites.$key.id %]<br>
+Precondition: [% testsuites.$key.precondition %]<br>
+Description: [% testsuites.$key.description %]<br>
+<a href="[% c.uri_for('removetestsuite', testrun.id, testsuites.$key.id) %]">Delete From Test Run</a>
 </p>
 [% END %]
