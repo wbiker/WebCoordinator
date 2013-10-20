@@ -30,7 +30,8 @@ The root page (/)
 sub index :Path :Args(0) {
     my ( $self, $c ) = @_;
 
-    $c->forward('testrun/list');
+    $c->res->redirect($c->uri_for('/testrun/list'));
+    $c->detach;
 }
 
 =head2 default

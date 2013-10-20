@@ -2,6 +2,7 @@ package WebCoordinator::Controller::Testrun;
 use Moose;
 use namespace::autoclean;
 use Data::Dump::Streamer;
+use Data::Dumper;
 use WebCoordinator::Form::AddTestrun;
 
 BEGIN { extends 'Catalyst::Controller'; }
@@ -23,6 +24,16 @@ Catalyst Controller.
 
 =cut
 
+sub list :Path('/testrun/list') :Args(0) {
+    my ($self, $c) = @_;
+    my $tr_data = $c->model('TestRunData');
+
+    my $tt = $tr_data->get_all_testruns($c);
+    $c->stash(testruns => $tt);
+    my $dump = Dump($self)->Out();
+    $c->stash(debug => $dump);
+}
+
 sub testrun :Path('/testrun') :Args(1) {
     my ( $self, $c, $testrun_id ) = @_;
     
@@ -37,20 +48,14 @@ sub testrun :Path('/testrun') :Args(1) {
     $c->stash(debug => $dump);
 }
 
-sub list :Path('/testrun/list') :Args(0) {
-    my ($self, $c) = @_;
-    $c->log->debug("/testrun/list path called");
-    # Hello World
-    my $tr_data = $c->model('TestRunData');
-
-    my $tt = $tr_data->get_all_testruns($c);
-#    my $tref = eval { $tt };
- #   if($@) { $c->log->error($@); }
-    $c->stash(testruns => $tt);
-}
-
 sub add :Path('add') :Args(0) {
     my ($self, $c) = @_;
+
+    if(! $c->user_exists) {
+        $c->flash(message => "You must be logged in for change actions");
+        $c->res->redirect($c->uri_for('/login'));
+        $c->detach;
+    }
 
     my $form = WebCoordinator::Form::AddTestrun->new;
     $c->stash(form => $form);
@@ -67,6 +72,12 @@ sub add :Path('add') :Args(0) {
 sub delete :Path('delete') :Args(1) {
     my ($self, $c, $testrun_id) = @_;
 
+    if(! $c->user_exists) {
+        $c->flash(message => "You must be logged in for change actions");
+        $c->res->redirect($c->uri_for('/login'));
+        $c->detach;
+    }
+
     $c->log->debug("Delete test run with id $testrun_id");
     $c->model('TestRunData')->delete_testrun($c, $testrun_id);
     $c->flash(message => 'Test run removed');
@@ -77,6 +88,12 @@ sub delete :Path('delete') :Args(1) {
 sub removetestsuite :Path('removetestsuite') :Args(2) {
     my ($self, $c, $tr_id, $ts_id) = @_;
 
+    if(! $c->user_exists) {
+        $c->flash(message => "You must be logged in for change actions");
+        $c->res->redirect($c->uri_for('/login'));
+        $c->detach;
+    }
+
     $c->log->debug("Remove ts '$ts_id' from tr '$tr_id'");
     $c->model('TestRunData')->remove_ts_from_tr($c, $tr_id, $ts_id);
     $c->res->redirect($c->uri_for('/testrun', $tr_id));
@@ -85,6 +102,12 @@ sub removetestsuite :Path('removetestsuite') :Args(2) {
 
 sub addtestsuites :Path('addtestsuites') :Args(1) {
     my ($self, $c, $tr_id) = @_;
+
+    if(! $c->user_exists) {
+        $c->flash(message => "You must be logged in for change actions");
+        $c->res->redirect($c->uri_for('/login'));
+        $c->detach;
+    }
 
     if($tr_id eq "addtestsuites") {
         my $testsuites = $c->req->parameters->{testsuites};

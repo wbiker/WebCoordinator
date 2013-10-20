@@ -37,6 +37,12 @@ sub list :Path('list') :Args(0) {
 
 sub add :Path('add') :Args(0) {
     my ($self, $c) = @_;
+    
+    if(! $c->user_exists) {
+        $c->flash(message => "You must be logged in for change actions");
+        $c->res->redirect($c->uri_for('/login'));
+        $c->detach;
+    }
 
     my $form = WebCoordinator::Form::AddTestcase->new;
     $c->stash(form => $form);
@@ -51,6 +57,12 @@ sub add :Path('add') :Args(0) {
 
 sub delete :Path('delete') :Args(1) {
     my ($self, $c, $testcase_id) = @_;
+
+    if(! $c->user_exists) {
+        $c->flash(message => "You must be logged in for change actions");
+        $c->res->redirect($c->uri_for('/login'));
+        $c->detach;
+    }
 
     $c->model('TestRunData')->delete_testcase($c, $testcase_id);
     $c->flash(message => 'Test case deleted');

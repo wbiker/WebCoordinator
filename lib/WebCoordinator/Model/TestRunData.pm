@@ -5,8 +5,8 @@ use Data::Dump::Streamer;
 use JSON;
 use Git::Wrapper;
 use File::Spec;
-use Data::Dump::Streamer;
 use Digest::MD5 qw(md5_hex);
+use Storable qw(dclone);
 
 extends 'Catalyst::Model';
 
@@ -44,7 +44,7 @@ sub get_all_testruns {
 #    my @tr_keys = keys%testruns;
 #    $c->log("Does not found any test runs") if 0 == @tr_keys;
 
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch($c);
     return $self->{$branch}->{testruns};
 }
 
@@ -53,7 +53,7 @@ sub get_test_run {
     my $c = shift;
     my $testrun_id = shift;
 
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch($c);
     $c->log->debug("search test run $testrun_id");
     return $self->{$branch}->{testruns}->{$testrun_id};
 }
@@ -65,7 +65,7 @@ sub get_test_suites {
 
     my $ts = {}; 
 
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch($c);
     for my $ts_id (keys %{$testsuite_ids}) {
         $ts->{$ts_id} = $self->{$branch}->{testsuites}->{$ts_id};
     }
@@ -79,7 +79,7 @@ sub get_test_cases {
     my $testcase_ids = shift;
 
     my $tc = {};
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch($c);
     for my $id (keys %{$testcase_ids}) {
         $tc->{$id} = $self->{$branch}->{testcases}->{$id};
     }
@@ -90,21 +90,21 @@ sub get_test_cases {
 sub get_all_testsuites {
     my ($self, $c) = @_;
 
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch($c);
     return $self->{$branch}->{testsuites};
 }
 
 sub get_all_testcases {
     my ($self, $c) = @_;
 
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch($c);
     return $self->{$branch}->{testcases};
 }
 
 sub remove_ts_from_tr {
     my ($self, $c, $tr_id, $ts_id) = @_;
 
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch_or_create($c);
     delete $self->{$branch}->{testruns}->{$tr_id}->{tsids}->{$ts_id};
     $self->_save_data_files($c, "removed TS '$ts_id' from tr '$tr_id'");
 }
@@ -112,7 +112,7 @@ sub remove_ts_from_tr {
 sub remove_tc_from_ts {
     my ($self, $c, $ts_id, $tc_id) = @_;
 
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch_or_create($c);
     delete $self->{$branch}->{testsuites}->{$ts_id}->{tcids}->{$tc_id};
     $self->_save_data_files($c, "removed TC '$tc_id' from ts '$ts_id'");
 }
@@ -120,13 +120,10 @@ sub remove_tc_from_ts {
 sub _load_data_files {
 	my $self = shift;
 	
+    my @branches = $self->_get_branches();
     my $git = Git::Wrapper->new($self->{branch_dir});
-    my @branches = $git->branch;
 
     for my $branch (@branches) {
-        $branch =~ s/\A\*//;
-        $branch =~ s/\A\s+//;
-
 	    for my $file (qw(testrun testsuite testcase)) {
 		    my $file_name = $file."_file";
 		    my $file_path = File::Spec->catfile($self->{branch_dir}, $self->{$file_name});
@@ -148,27 +145,21 @@ sub _load_data_files {
 sub _reload_data_files {
 	my $self = shift;
     my $c = shift;
-	
+    	
+    my @branches = $self->_get_branches($c);
     my $git = Git::Wrapper->new($self->{branch_dir});
-    my @branches = $git->branch;
 
     for my $branch (@branches) {
-        $branch =~ s/\A\*//;
-        $branch =~ s/\A\s+//;
-
-        $c->log->debug("Load files from branch '$branch'");
+        $c->log->debug("RELOAD: $branch");
 	    for my $file (qw(testrun testsuite testcase)) {
 		    my $file_name = $file."_file";
 		    my $file_path = File::Spec->catfile($self->{branch_dir}, $self->{$file_name});
-            $c->log->debug("File path: '$file_path'");
 	        if(-e $file_path) {
 	            my $tr = do $file_path;
         	    die "couldn't parse $file_path: $@" if $@;
     	        die "Could not do $file_path: $!" unless defined $tr;
 	            die "Could not run $file_name" unless $tr;
 			    my $variable = $file."s";
-                $c->log->debug("Store data in hash '$variable'");
-                $c->log->debug("hash data '$tr'");
         	    $self->{$branch}->{$variable} = $tr;
     	    }
 	        else {
@@ -182,13 +173,30 @@ sub _save_data_files {
 	my $self = shift;
     my $c = shift;
     my $commit_reasons = shift // "Commit without reasons";
-
-    my $branch = _get_branch($c);
-    $c->log->debug("Save files for user with branch '$branch'");
     
+    my $branch;
+    if($c->user && exists $c->user->{id}) {
+        $branch = $c->user->{id};
+        $c->log->debug("Save files for user '$branch'");
+    }
+    else {
+        $c->log->error("Commits to branch master not allowed");
+        return;
+    }
+   
     my $git = Git::Wrapper->new($self->{branch_dir});
-    $c->log->info("Checkout branch '$branch'");
-    $git->checkout($branch);
+
+    my $found = grep { $_ eq $branch } $self->_get_branches();
+    unless($found) {
+        $c->log->debug("Create branch $branch");
+        $git->branch($branch);
+        $git->checkout($branch);   
+
+    }
+    else {
+        $c->log->info("Checkout branch '$branch'");
+        $git->checkout($branch);
+    }
 
 	for my $file (qw(testrun testsuite testcase)) {
 		my $file_path = File::Spec->catfile($self->{branch_dir}, $self->{$file."_file"});
@@ -207,8 +215,8 @@ sub _save_data_files {
     my $statuses = $git->status;
 
     if($statuses->is_dirty) {
-    $c->log->debug("Commit branch '$branch' with reason '$commit_reasons'");
-    $git->commit({ message => $commit_reasons, all => 1 });
+        $c->log->debug("Commit branch '$branch' with reason '$commit_reasons'");
+        $git->commit({ message => $commit_reasons, all => 1 });
     }
     else {
         $c->log->debug("Don't commit, repository '$branch' has not any uncommited changes");
@@ -218,7 +226,7 @@ sub _save_data_files {
 sub get_test_suite {
     my ($self, $c, $testsuite_id) = @_;
 
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch($c);
     return $self->{$branch}->{testsuites}->{$testsuite_id};
 }
 
@@ -229,7 +237,7 @@ sub add_new_testrun {
     # first create id
     my $id = md5_hex(time);
         
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch_or_create($c);
     my $name = $c->req->parameters->{name};
     $self->{$branch}->{testruns}->{$id}->{name} = $name;
     $self->{$branch}->{testruns}->{$id}->{id} = $id;
@@ -241,7 +249,7 @@ sub add_new_testsuite {
 
     my $id = md5_hex(time);
 
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch_or_create($c);
     my $name = $c->req->parameters->{name};
     $self->{$branch}->{testsuites}->{$id}->{name} = $name;
     $self->{$branch}->{testsuites}->{$id}->{description} = $c->req->parameters->{description};
@@ -254,7 +262,7 @@ sub add_new_testcase {
 
     my $id = md5_hex(time);
 
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch_or_create($c);
     my $name = $c->req->parameters->{name};
     $self->{$branch}->{testcases}->{$id}->{name} = $name;
     $self->{$branch}->{testcases}->{$id}->{description} = $c->req->parameters->{description};
@@ -265,7 +273,7 @@ sub add_new_testcase {
 sub delete_testrun {
     my ($self, $c, $testrun_id) = @_;
 
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch_or_create($c);
     delete $self->{$branch}->{testruns}->{$testrun_id};
 	$self->_save_data_files($c, "Delete TR with id '$testrun_id'");
 }
@@ -273,7 +281,7 @@ sub delete_testrun {
 sub delete_testsuite {
     my ($self, $c, $testsuite_id) = @_;
 
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch_or_create($c);
     delete $self->{$branch}->{testsuites}->{$testsuite_id};
 	$self->_save_data_files($c, "Delete TS with id '$testsuite_id'");;
 }
@@ -281,7 +289,7 @@ sub delete_testsuite {
 sub delete_testcase {
     my ($self, $c, $testcase_id) = @_;
 
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch_or_create($c);
     delete $self->{$branch}->{testcases}->{$testcase_id};
 	$self->_save_data_files($c, "Delete TC with id '$testcase_id'");;
 }
@@ -289,7 +297,7 @@ sub delete_testcase {
 sub add_testsuites_to_tr {
     my ($self, $c, $tr_id, $testsuites) = @_;
     
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch_or_create($c);
     my $tr = $self->{$branch}->{testruns}->{$tr_id};
 
     if(!exists $tr->{tsids}) {
@@ -312,7 +320,7 @@ sub add_testsuites_to_tr {
 sub add_testcases_to_ts {
     my ($self, $c, $ts_id, $testcases) = @_;
     
-    my $branch = _get_branch($c);
+    my $branch = $self->_get_branch_or_create($c);
     my $ts = $self->{$branch}->{testsuites}->{$ts_id};
 
     if(!exists $ts->{tcids}) {
@@ -338,13 +346,61 @@ sub add_testcases_to_ts {
 }
 
 sub _get_branch {
+    my $self = shift;
     my $c = shift;
 
-    if($c->session && exists $c->session->{branch}) {
-        return $c->session->{branch};
+    if($c->user && exists $c->user->{id}) {
+        my $id = $c->user->{id};
+        if(exists $self->{$id}) {
+            $c->log->debug("Get branch: $id");
+            return $id;
+        }
     }
 
+    $c->log->debug("Get branch: master");
     return 'master';
+}
+
+sub _get_branch_or_create {
+    my $self = shift;
+    my $c = shift;
+
+    if($c->user && exists $c->user->{id}) {
+        my $id = $c->user->{id};
+        if(!exists $self->{$id}) {
+            $c->log->debug("copy master repositories");
+            $self->{$id}->{testruns} = dclone($self->{master}->{testruns});
+            $self->{$id}->{testsuites} = dclone($self->{master}->{testsuites});
+            $self->{$id}->{testcases} = dclone($self->{master}->{testcases});
+
+            my $d = Data::Dump::Streamer->new;
+            $d->Names('before', 'after');
+            $d->Data($self->{master}->{testsuites}, $self->{$id}->{testsuites});
+
+            open(my $fh, ">", 'blblb');
+            $d->To($fh)->Out();
+            close($fh);
+        }
+
+        $c->log->debug("Get branch or create: $id");
+        return $id;
+    }
+}
+
+sub _get_branches {
+    my ($self, $c) = @_;
+
+    my $git = Git::Wrapper->new($self->{branch_dir});
+
+    my @branches = $git->branch;
+
+    my @ret_branches;
+    for my $br (@branches) {
+        $br =~ s/\A\s+//;
+        $br =~ s/\A\*\s+//;
+        push(@ret_branches, $br);
+    }  
+    return @ret_branches;
 }
 
 =head1 AUTHOR

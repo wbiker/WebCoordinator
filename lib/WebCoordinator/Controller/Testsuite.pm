@@ -44,6 +44,12 @@ sub list :Path('/testsuite/list') :Args(0) {
 sub add :Path('add') :Args(0) {
     my ($self, $c) = @_;
     
+    if(! $c->user_exists) {
+       $c->flash(message => "You must be logged in for change action");
+       $c->res->redirect($c->uri_for('/login')); 
+       $c->detach;
+    }
+
     my $form = WebCoordinator::Form::AddTestsuite->new;
     $c->stash(form => $form);
     $form->process(params => $c->req->parameters);
@@ -59,6 +65,12 @@ sub add :Path('add') :Args(0) {
 sub delete :Path('delete') :Args(1) {
     my ($self, $c, $testsuite_id) = @_;
 
+    if(! $c->user_exists) {
+       $c->flash(message => "You must be logged in for change action");
+       $c->res->redirect($c->uri_for('/login')); 
+       $c->detach;
+    }
+
     $c->model('TestRunData')->delete_testsuite($c, $testsuite_id);
     $c->res->redirect($c->uri_for('list'));
     $c->detach;
@@ -67,6 +79,12 @@ sub delete :Path('delete') :Args(1) {
 
 sub addtestcases :Path('addtestcases') :Args(1) {
     my ($self, $c, $ts_id) = @_;
+
+    if(! $c->user_exists) {
+       $c->flash(message => "You must be logged in for change action");
+       $c->res->redirect($c->uri_for('/login')); 
+       $c->detach;
+    }
 
     if($ts_id && $ts_id eq "addtestcases") {
         my $testcases = $c->req->parameters;
@@ -85,6 +103,12 @@ sub addtestcases :Path('addtestcases') :Args(1) {
 sub removetestcase :Path('removetestcase') :Args(2) {
     my ($self, $c, $ts_id, $tc_id) = @_;
     
+    if(! $c->user_exists) {
+       $c->flash(message => "You must be logged in for change action");
+       $c->res->redirect($c->uri_for('/login')); 
+       $c->detach;
+    }
+
     $c->log->debug("Remove TC '$tc_id' from TS '$ts_id'");
     my $ts = $c->model('TestRunData')->remove_tc_from_ts($c, $ts_id, $tc_id);
     $c->res->redirect($c->uri_for($ts_id));

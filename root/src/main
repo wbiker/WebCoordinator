@@ -16,7 +16,7 @@
                 <dd><a href="[% c.uri_for('/testcase', 'add') %]">New</a></dd>
         </dl>
         [% IF c.user %]
-        Logged in as [% c.user.username %] ([% c.user.person.name %])
+        Logged in as [% c.user.id %] ([% c.user.person.name %])
         <a href="[% c.uri_for('/logout') %]">Log out</a> 
         [% ELSE %]
         Not logged in. <a href="[% c.uri_for('/login') %]">Log in</a>.
