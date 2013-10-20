@@ -1,0 +1,22 @@
+[% META TITLE="Add Test Cases" %]
+
+<p>
+Test Suite Name: [% testsuite.name %]<br>
+</p>
+<form name="add" action="addtestcases" methode="POST">
+    <input type="submit" value="Submit">
+    <table>
+        <tr>
+            <th></th><th>Name</th><th>Category</th><th>Description</th>
+        </tr>
+        [% FOREACH tcid IN testcases.keys %]
+            <tr>
+                <td><input type="checkbox" name="testcases" value="[% tcid %]"></td>
+                <td>[% testcases.$tcid.name %]</td>
+                <td>[% testcases.$tcid.category %]</td>
+                <td>[% testcases.$tcid.description %]</td>
+            </tr>
+        [% END %]
+    </table>
+    <input type="submit" value="Submit">
+</form>
